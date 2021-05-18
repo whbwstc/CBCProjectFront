@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>寄存下单</title>
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+	</head>
+	<body>
+		<div id="div1" style="padding-left: 70px;padding-top: 30px;">
+			<form class="layui-form" action="">
+
+				<div class="layui-form-item">
+						<label class="layui-form-label">评分：</label>
+						<div class="layui-input-block">
+							<div id="test5" style="width: 250px;"></div>
+						</div>
+				</div>
+				
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">评价内容：</label>
+					<div class="layui-input-block">
+						<textarea id="judgeText" class="layui-textarea" placeholder="请输入内容" required   lay-verify="required" style="width: 258px;"></textarea>
+					</div>
+				</div>
+				
+				<!-- 图片上传 -->
+<!-- 				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">上传图片：</label>
+					<div class="layui-input-block">
+						<div class="layui-upload-drag" id="test10">
+						  <i class="layui-icon"></i>	
+						  <p>点击上传，或将文件拖拽到此处</p>
+						  <div class="layui-hide" id="uploadDemoView">
+								
+						    <img src="" alt="上传成功后渲染" style="max-width: 196px">
+						  </div>	
+						</div>
+					</div>
+				</div> -->
+				
+				<div class="layui-form-item">
+					<div class="layui-input-block" style="padding-left: 40px;padding-top: 20px;">
+						<button type="submit" class="layui-btn layui-btn-warm" lay-submit="" lay-filter="demo1">提交</button>
+						 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" src="judge.js"></script>
+</html>

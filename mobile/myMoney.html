@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的钱包界面</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/demos/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="weui/css/myMoney.css" />
+		<script src="layui/layui.js"></script>
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.min.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<!-- 头尾导航栏 -->
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		<script src="weui/js/config.js"></script>
+	</head>
+	<body ontouchstart>
+		<div>
+			<p class="demos-title">我的钱包</p>
+		</div>
+		<!-- 引入头部
+		<!-- <div id="header_box"></div> -->
+
+		<div id="conten">
+			<div class="weui-cell weui-cell_access" style="pointer-events: none;" >
+				<div class="weui-cell__hd"><img class="layui-btn-radius" src="image/col_08.jpg" alt=""
+						style="width:50px;margin-right:5px;display:block"></div>
+				<input type="text" id="name" name="name" value="" disabled="disabled" style="BACKGROUND-COLOR: transparent;border:0;" />
+				<!-- <div class="pic">用户名</div> -->
+			</div>
+
+			<div style="display: flex;align-items: center; margin-left: 30px;">
+
+				<a class="weui-cell weui-cell_access" style="pointer-events: none;">
+					<div class="weui-cell__hd"><img src="weui/demos/images/icon_nav_tab.png" alt=""
+							style="width:20px;margin-right:5px;display:block"></div>
+					<div class="pic">卡券</div>
+				</a>
+
+				<a class="weui-cell weui-cell_access" style="pointer-events: none;">
+					<div class="weui-cell__hd"><img src="weui/demos/images/icon_nav_select.png" alt=""
+							style="width:20px;margin-right:5px;display:block"></div>
+					<div class="pic">账单</div>
+				</a>
+
+				<a class="weui-cell weui-cell_access" style="pointer-events: none;">
+					<div class="weui-cell__hd"><img src="weui/demos/images/icon_nav_cell.png" alt=""
+							style="width:20px;margin-right:5px;display:block"></div>
+					<div class="pic">银行卡</div>
+				</a>
+			</div>
+		</div>
+		<form>
+			<div id="li_money">
+				<div id="li_top">
+					<img src="image/money.png" / id="Img">余额：
+				</div>
+
+				<div id="li_bottom">
+					<input type="text" id="money" name="money" value="" disabled="disabled"
+						style="text-align: center;" />元
+					<div class="demos-title;" style="margin-left: 70px;">
+						<a id="recharge" href="#" class="layui-btn layui-btn-radius layui-btn-warm">充值</a>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				var user_id = sessionStorage.getItem("user_id")
+				sendRequest("cbcuser/info/" + user_id, {}, function(result) {
+					if (result.code == 0) {
+						$("#money").val(result.data.userMoney);
+						$("#name").val(result.data.userName);
+					}
+				});
+				$("#recharge").click(function() {
+					$.alert("充值请联系管理员");
+				})
+			</script>
+
+		</form>
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+	</body>
+</html>

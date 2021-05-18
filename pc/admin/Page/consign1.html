@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>寄存下单</title>
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+	</head>
+	<body>
+		<div id="div1" style="padding-left: 100px;padding-top: 30px;">
+			<form class="layui-form" action="">
+
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">寄存时间</label>
+						<div class="layui-input-inline">
+							<input type="text" name="enter_time" id="enter_time" required lay-verify="date" placeholder="yyyy/MM/dd" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">取出时间</label>
+						<div class="layui-input-block">
+							<input type="text" name="out_time" id="out_time" required lay-verify="date" placeholder="yyyy/MM/dd" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">行李类数量</label>
+						<div class="layui-input-inline">
+							<select name="luggage_num" id="luggage_num" required lay-verify="required|number1" lay-search="">
+								<option value="0">0</option>>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">背包类数量</label>
+						<div class="layui-input-inline">
+							<select name="bag_num" id="bag_num" required lay-verify="required|number1" lay-search="">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-input-block" style="padding-left: 40px;padding-top: 20px;">
+						<button type="submit" class="layui-btn layui-btn-warm" lay-submit="" lay-filter="demo1">下一步</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" src="consign1.js"></script>
+</html>

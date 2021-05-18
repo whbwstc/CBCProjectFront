@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>首页</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="weui/lib/weui.min.css">
+	<link rel="stylesheet" href="weui/css/jquery-weui.css">
+	<link rel="stylesheet" href="weui/css/demos.css">
+	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+	<link rel="stylesheet" type="text/css" href="weui/css/index.css"/>
+	<script src="weui/lib/jquery-2.1.4.js"></script>
+	<script src="weui/lib/fastclick.js"></script>
+	<script src="weui/js/swiper.min.js"></script>
+	<script src="weui/js/jquery-weui.js"></script>
+	<script type="application/javascript" src="weui/js/include.js"></script>
+  </head>
+  <body ontouchstart>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+		
+		<!--轮播 start-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide"><img src="image/bg-news.jpg" alt=""></div>
+			  <div class="swiper-slide"><img src="image/a_077.jpg" alt=""></div>
+			  <div class="swiper-slide"><img src="image/guide0.png" alt=""></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var mySwiper = new Swiper('.swiper-container',{
+					speed: 2000 ,//播放速度
+					autoHeight:true,
+					loop:true,//是否循环播放
+					setWrapperSize:true,
+					autoplay: 
+					{
+					  delay: 5000  ,
+					  disableOnInteraction: false,
+					},
+					pagination:  '.swiper-pagination',//分页
+					effect : 'slide',//动画效果
+				}
+			  );
+		</script>
+		<!--轮播 end-->
+		
+		<div>
+			<span id="div_title">我要寄存行李</span>
+			
+			<div style="margin: 10px 10px ;">
+				<a href="login.html" id="BtnLog" class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">寄存</a>
+			</div>
+		</div>
+	  
+		<div id="div">特别说明:没有什么特别说明</div>
+		
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>寄存主页面</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/js/city-picker.js"></script>
+		<script src="layui/layui.js" charset="utf-8"></script>
+		<script src="../js/vue.min.js"></script>
+		<script src="weui/js/store.js"></script>
+		<script type="application/javascript" src="weui/js/include.js"></script>
+
+	</head>
+	<body ontouchstart>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+
+		<img src="image/guide0.png" style="height: 100px;width: 100%;">
+
+		<!--地址选择器-->
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="store_city" class="weui-label">城市</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="store_city" placeholder="请选择你所在的城市" type="text">
+				</div>
+			</div>
+			<div class="weui-cell">
+
+				<a href="javascript:;" class="layui-btn layui-btn-sm layui-btn-primary layui-btn-radius"
+					style="background: gold; color: black; width: 100%;" id="btn-query">确定</a>
+
+			</div>
+		</div>
+		<!--寄存点选择-->
+		<div id="storeListApp" class="layui-card-body layui-table-body layui-table-main"
+			style="overflow-x: auto; overflow-y: auto; height: auto;">
+			<table class="layui-table layui-form" border="0">
+				<thead>
+					<tr>
+						<th style="text-align: center;">寄存点</th>
+						<th style="text-align: center;">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr v-for="store in storeList">
+
+						<td align="center">
+							<a href="javascript:;"
+								@click="addrManager(store.storeId, store.bagNum, store.luggageNum,store.storeCity,store.storeAddr, store.storeState)"
+								style="color: black; width: 100%;"
+								:id="'btn-look'+store.storeId">{{store.storeName}}</a>
+						</td>
+
+						<td align="center">
+							<a href="javascript:;"
+								@click="orderManager(store.storeId, store.storeAddr, store.storeState, store.bagNum, store.luggageNum,store.storeCity)"
+								:class="store.storeState==1 && ( store.bagNum != 0 || store.luggageNum != 0) ?'layui-btn layui-btn-sm layui-btn-primary layui-btn-radius':'layui-btn-disabled layui-btn layui-btn-sm layui-btn-primary layui-btn-radius'"
+								:style="store.storeState==1 && ( store.bagNum != 0 || store.luggageNum != 0) ?'background: gold; color: white; width: 100%;' : 'width: 100%;'"
+								:id="'btn-store'+store.storeId">寄存</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--寄存点选择-->
+
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+
+			$("#store_city").cityPicker({
+				title: "选择寄存城市",
+				showDistrict: false,
+				onChange: function(picker, values, displayValues) {}
+			});
+		</script>
+
+		<!-- 引入尾部 -->
+		<div style="height: 50px;"></div>
+		<div id="footer_box"></div>
+	</body>
+</html>

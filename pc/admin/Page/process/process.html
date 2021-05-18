@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>寄存流程</title>
+		<link rel="icon" href="../../中级项目imges/title.png" type="image/x-icon">
+		<!--导入css-->
+		<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/text/css" href="../../lib/layui/css/modules/layer/default/layer.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/CBC.css" />
+		<!--导入js jquery-->
+		<script type="text/javascript" src="../../lib/layui/lay/modules/layer.js"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<style>
+			#font177,#font150,#font26,#font15{
+				font-size: 40px;
+				font-family:"微软雅黑";
+				font-weight: 100;
+				line-height: 48px;
+				letter-spacing: 3px;
+				padding-bottom: 18px;
+				float: left;
+				margin-left: 70px;
+			}
+			#font1,#font2,#font3,#font4{
+				font-size: 14px;
+				font-family:"微软雅黑";
+				font-weight: 100;
+				line-height: 48px;
+				letter-spacing: 3px;
+				padding-bottom: 18px;
+				padding-right: 60px;
+				display: inline-block;
+				transform: translateY(-15px);
+				margin-top: 10px;
+			}
+			
+			#p1,#p2,#p3,#p4{
+				line-height: 26px;
+				color: #404040;
+				padding: 15px 10px 0 10px;
+				font-size: 12px;
+				font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+			}
+			
+			#cj1,#cj2,#cj3,#cj4,#cj5,#cj6,#cj7,#cj8{
+				font-size: 16px;
+				font-weight: normal;
+				margin-left: 22px;
+				padding-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--第一部分:导航-->
+		<div class="col-lg-12" style="height: 420px;padding-top: 50px; width: 100%; background-image: url(../../中级项目imges/须知_01.jpg);">
+			<div>
+				<ul class="nav  nav-pills navbar-right" style="margin-right:100px;" ;>
+					<li><a class="a1" href="../index.html" style="color: black;">首页</a></li>
+					<li><a class="a2" href="#" style="color: black;" onclick="btnClick()">行李寄存</a></li>
+					<li><a class="a3" href="../reservation/reservation.html" style="color: black;">预定须知</a></li>
+					<li><a class="a4" href="process.html" style="color: black;">寄存流程</a></li>
+					<li><a class="a5" href="../service/service.html" style="color: black;">服务与帮助</a></li>
+					<li id="loginIndexLi1"><a href="../login.html" style="color: black; ">登录|注册</a></li>
+					<li id="exitLogin" style=" display: none;"><a href="javascript:exitLogin()" style="color: black;">已登录，注销</a></li>
+				</ul>
+			</div>
+			<div><span style="margin-left: 400px;"><img src="../../中级项目imges/logo1.png" /></span></div>
+		</div>
+
+		<!--第二部分 寄存流程-->
+		<div class="container" style="width: 100%; background-color: #f3f8fb;height: 400px;">
+
+			<div class="col-lg-4 col-lg-offset-4" style="text-align: center;margin-top: 50px;">
+				<h2>平台寄存流程</h2>
+				<h3 style="margin-top: 5px; color:red;font-weight:bold;">——</h3>
+			</div>
+
+			<div class="col-lg-10 col-lg-offset-2" style="padding-top: 50px;">
+				<ul class="nav nav-pills navbar-left">
+					<li>
+						<img src="../../中级项目imges/流程1.png" />
+						<img style="padding: 0px 20px 0px 20px;" src="../../中级项目imges/L1.png" />
+						<div style="width: 175px;">
+							<p id="p1">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+					<li>
+						<img src="../../中级项目imges/流程2.png" />
+						<img style="padding: 0px 20px 0px 20px;" src="../../中级项目imges/L2.png" />
+						<div style="width: 175px;">
+							<p id="p2">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+					<li>
+						<img src="../../中级项目imges/流程3.png" />
+						<img style="padding: 0px 20px 0px 20px;" src="../../中级项目imges/L3.png" />
+						<div style="width: 175px;">
+							<p id="p3">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+					<li>
+						<img src="../../中级项目imges/流程4.png" />
+						<div style="width: 175px;">
+							<p id="p4">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div><br />
+
+		<!--第三部分 平台应用场景-->
+		<div>
+			<div class="container col-lg-4 col-lg-offset-4" style="text-align: center;margin-top: 50px;">
+				<h2>平台应用场景</h2>
+				<h3 style="margin-top: 5px; color:red;font-weight:bold;">——</h3>
+			</div>
+
+			<div class="col-lg-8 col-lg-offset-2" style="text-align: center; margin-top: 10px;">
+				<h5 style="font-size:16px;color:gray; line-height: 30px;">
+					在如下一些场景，用户为了方便购物、游玩、运动，需要把携带的背包、行李、衣物等物品找地方临时寄存起来
+				</h5>
+			</div>
+
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景1.png" />
+					<div style="background-color: #ff6666; width: 243px;height: 80px; color: white;">
+						<div id="cj1">游泳池</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了健身运动存放行李</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景2.png" />
+					<div style="background-color: #ffb000; width: 243px;height: 80px;color: white;">
+						<div id="cj2">飞机场</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">需要把携带的背包、行李、衣物</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景3.png" />
+					<div style="background-color: #36c48f; width: 243px;height: 80px; color: white;">
+						<div id="cj3">商场购物</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了方便购物提供寄存</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景4.png" />
+					<div style="background-color: #404a54; width: 243px;height: 80px; color: white;">
+						<div id="cj4">地铁出行</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了方便旅游存放行李</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景5.png" />
+					<div style="background-color: #06c7cb; width: 243px;height: 80px; color: white;">
+						<div id="cj5">酒吧</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了健身运动存放行李</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景6.png" />
+					<div style="background-color: #1456eb; width: 243px;height: 80px; color: white;">
+						<div id="cj6">火车站</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">需要把携带的背包、行李、衣物</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景7.png" />
+					<div style="background-color: #b9416e; width: 243px;height: 80px; color: white;">
+						<div id="cj7">超市</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了方便购物提供寄存</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../../中级项目imges/场景8.png" />
+					<div style="background-color: #524941; width: 243px;height: 80px; color: white;">
+						<div id="cj8">旅游景点</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">需要把携带的背包、行李、衣物</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页脚 -->
+		<div class='col-lg-12' style='text-align: center; margin-top: 80px;'>
+			<div style='background-color: #f7f7f7; height: 200px; width: 100%;padding-left: 150px;'>
+
+				<div style='border: 1px solid #f3f8fb;height: 200px;width: 1100px;'>
+					<table style='margin-top:30px; width: 100%;height: 100px; font-size: 12px;'>
+						<tbody>
+							<tr>
+								<td>咨询邮箱</td>
+								<td>手机站扫站</td>
+								<td>关注存不存</td>
+								<td><a href='#'>我要寄存</a></td>
+								<td><a href='#'>预定须知</a></td>
+							</tr>
+							<tr>
+								<td>
+									<h4>E-mail:cbcstorage@xxxx.com</h4>
+								</td>
+								<td>
+									<img src='../../中级项目imges/页脚.png' /></td>
+								<td>
+									<a href='javascript:btnClick3()'><img src='../../中级项目imges/页脚1.png' /></a>
+									<a href='javascript:btnClick2()'><img src='../../中级项目imges/页脚2.png' /></a>
+								</td>
+								<td><a href='#'>关于存不存</a></td>
+								<td><a href='#'>预定流程</a></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><a href='#'>服务与帮助</a></td>
+								<td><a href='#'>商务合作</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div id='c2' style='height: 200px;margin-top: 80px; font-size: 12px;font-family: 微软雅黑, Arial, Helvetica'>
+				<div style='margin-top: 10px;'>© 2019 www.cunbcxxx.com 存不存版权所有</div>
+				<div style='margin-top: 10px;'>备案号： 苏ICP备19009XXX号 苏公网安备案 营业执照MA1WRXXXX 存不存保障计划</div>
+				<div style='margin-top: 10px;'>
+					地址：
+					<a href='#'>南京市江宁区秣陵街道科建路XXX号</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../reservation/reservation.js"></script>
+</html>

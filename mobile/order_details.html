@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>我的历史订单</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/demos/css/demos.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<script src="layui/layui.js"></script>
+		<script src="layui/lay/modules/layer.js"></script>
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<!-- 头尾导航 -->
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/lib/qrcode.js"></script>
+		<script src="weui/lib/jquery.qrcode.min.js"></script>
+		<style>
+			img {
+				height: 200px;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+
+		<div class="weui-cells weui-cells_form">
+
+			<div class="page__bd">
+				<div class="weui-panel weui-panel_access">
+
+					<div class="weui-cell">
+						<div id="order_code" class="weui-cell__hd"><label for="" class="weui-label">订单编号：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="user_name" class="weui-cell__hd"><label for="" class="weui-label">用户名：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="store_name" class="weui-cell__hd"><label for="" class="weui-label">寄存点：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="enter_time" class="weui-cell__hd"><label for="" class="weui-label">寄存时间：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="out_time" class="weui-cell__hd"><label for="" class="weui-label">取件时间：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="bag_num" class="weui-cell__hd"><label for="" class="weui-label">背包类：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="luggage_num" class="weui-cell__hd"><label for="" class="weui-label">行李箱类：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="order_money" class="weui-cell__hd"><label for="" class="weui-label">订单金额：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="order_state" class="weui-cell__hd"><label for="" class="weui-label">订单状态：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-cell">
+						<div id="judge_state" class="weui-cell__hd"><label for="" class="weui-label">评价状态：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="weui-btn-area" style="padding-left: 30px;">
+						<a class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius open-popup"
+							style="background: gold; color: white; width: 40%;" data-target="#update"
+							id="btn-sure">取件</a>
+						<a class="layui-btn layui-btn-lg layui-btn-warm layui-btn-radius click-dialog"
+							style="width: 40%;" id='show-prompt'>评价</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div id="update" class='weui-popup__container popup-bottom'>
+			<div class="weui-popup__overlay"></div>
+			<div class="weui-popup__modal">
+				<div class="toolbar">
+					<div class="toolbar-inner">
+						<a class="picker-button close-popup" style="color: gold;">关闭</a>
+						<h1 class="title">取货二维码</h1>
+					</div>
+				</div>
+				<div id="qrcode" style="margin: 50px 20px; text-align: center;"></div>
+
+			</div>
+		</div>
+
+
+
+		<!-- 尾部导航导入有问题 -->
+		<div id="footer_box"></div>
+		<script>
+			$(function() {
+				var order_id = sessionStorage.getItem("order_id");
+
+				sendRequest("cbcorder/info/" + order_id, {}, function(result) {
+					if (result.code == 0) {
+						$("#order_code").after(result.data.order_code);
+						$("#user_name").after(result.data.user_name);
+						$("#enter_time").after(result.data.enter_time);
+						$("#out_time").after(result.data.out_time);
+						$("#bag_num").after(result.data.bag_num + " 件");
+						$("#luggage_num").after(result.data.luggage_num + " 件");
+						$("#store_name").after(result.data.store_name);
+						$("#order_money").after(result.data.order_money + " 元");
+						if (result.data.order_state == 1) {
+							$("#order_state").after("已存");
+						} else {
+							$("#order_state").after("已取");
+						}
+						if (result.data.judge_state == 1) {
+							$("#judge_state").after("未评价");
+						} else {
+							$("#judge_state").after("已评价");
+						}
+						sessionStorage.setItem("orderCode", result.data.order_code);
+					}
+				});
+
+				$('#qrcode').qrcode({
+					render: "canvas", //也可以替换为table
+					width: 300,
+					height: 300,
+					text: sessionStorage.getItem("orderCode")
+				});
+
+				// 评价
+				$(document).on("click", "#show-prompt", function() {
+
+					sendRequest("cbcorder/orderState/" + order_id, {}, function(result) {
+						$.toast.prototype.defaults.duration = 1000;
+						if (result.data.order_state == 2) {
+							if (result.data.judge_state == 2) {
+								$.toast("评价已完成");
+							} else {
+								location.href = "judge.html";
+							}
+						} else {
+							$.toast("订单未完成", "cancel");
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

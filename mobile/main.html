@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>存不存主界面</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="weui/lib/weui.min.css">
+	<link rel="stylesheet" href="weui/css/jquery-weui.css">
+	<link rel="stylesheet" href="weui/demos/css/demos.css">
+		
+	<script src="weui/lib/jquery-2.1.4.js"></script>
+	<script src="weui/js/swiper.min.js"></script>
+	<script src="weui/js/jquery-weui.min.js"></script>
+	<script src="weui/lib/fastclick.js"></script>
+	<!-- 头尾导航栏 -->
+	<script type="application/javascript" src="weui/js/include.js"></script>
+	<script src="weui/js/config.js"></script>
+	
+    <style>
+		#top{
+			border: 1px solid gold;	
+			height: 50px;
+			width: 100%;
+			background-color: gold;
+		}
+		#titlt{
+			color: white;
+			margin-top: 20px;
+		}
+		img{
+			height: 200px;
+			width: 100%;
+		}
+	</style>
+	
+	</head>
+   <body ontouchstart>
+	   
+	   <!-- 引入头部 -->
+	   <div id="header_box"></div>
+	   
+<!--轮播 start-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide"><img src="image/bg-news.jpg" alt=""></div>
+			  <div class="swiper-slide"><img src="image/a_077.jpg" alt=""></div>
+			  <div class="swiper-slide"><img src="image/guide0.png" alt=""></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var mySwiper = new Swiper('.swiper-container',{
+					speed: 2000 ,//播放速度
+					autoHeight:true,
+					loop:true,//是否循环播放
+					setWrapperSize:true,
+					autoplay: 
+					{
+					  delay: 5000  ,
+					  disableOnInteraction: false,
+					},
+					pagination:  '.swiper-pagination',//分页
+					effect : 'slide',//动画效果
+				}
+			  );
+		</script>
+		<!--轮播 end-->
+		
+		<div class="weui-grids">
+		  <a href="personalPage1.html" class="weui-grid js_grid">
+		    <div class="weui-grid__icon">
+		      <img src="image/account.png" alt="">
+		    </div>
+		    <p class="weui-grid__label">
+			 个人中心
+		    </p>
+		  </a>
+
+		  <a href="store.html" class="weui-grid js_grid">
+		    <div class="weui-grid__icon">
+		      <img src="image/行李.png" alt="">
+		    </div>
+		    <p class="weui-grid__label">
+		      我要寄存
+		    </p>
+		  </a>
+		  
+		  <a href="order.html" class="weui-grid js_grid">
+		    <div class="weui-grid__icon">
+		      <img src="image/order.png" alt="">
+		    </div>
+		    <p class="weui-grid__label">
+		     我的订单
+		    </p>
+		  </a>
+		  
+		  <a href="myMoney.html" class="weui-grid js_grid">
+		    <div class="weui-grid__icon">
+		      <img src="image/money.png" alt="">
+		    </div>
+		    <p class="weui-grid__label">
+		      我的钱包
+		    </p>
+		  </a>
+		  <a href="score.html" class="weui-grid js_grid">
+		    <div class="weui-grid__icon">
+		      <img src="image/score.png" alt="">
+		    </div>
+		    <p class="weui-grid__label">
+				我的积分
+		    </p>
+		  </a>
+		  <a href="service.html" class="weui-grid js_grid">
+		    <div class="weui-grid__icon">
+		      <img src="image/服务评价-客服.png" alt="">
+		    </div>
+		    <p class="weui-grid__label">
+				联系客服
+		    </p>
+		  </a>
+		</div>
+		
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+  </body>
+</html>

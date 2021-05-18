@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>寄存下单</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		<script src="weui/js/config.js"></script>
+	</head>
+	<body>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+		<img src="image/guide0.png" style="height: 100px;width: 100%;">
+
+		<div class="weui-form-preview">
+
+			<div class="weui-form-preview__hd">
+				<label class="weui-form-preview__label">付款金额</label>
+				<em class="weui-form-preview__value" id="order_money"></em>
+			</div>
+
+			<div class="weui-form-preview__bd">
+
+				<div class="weui-form-preview__item">
+					<label class="weui-form-preview__label">寄存天数</label>
+					<span class="weui-form-preview__value" id="store_days"></span>
+				</div>
+
+				<div class="weui-form-preview__item">
+					<label class="weui-form-preview__label">下单地址</label>
+					<span class="weui-form-preview__value" id="store_addr"></span>
+				</div>
+
+
+
+				<div class="weui-form-preview__item">
+					<label class="weui-form-preview__label">寄存类型</label>
+					<span class="weui-form-preview__value" id="order_type"></span>
+				</div>
+
+			</div>
+			<div class="weui-form-preview__ft">
+				<button id="btn-sure" type="button" class="weui-form-preview__btn weui-form-preview__btn_primary"
+					href="javascript:">下单</button>
+				<button id="btn-cancel" type="button" class="weui-form-preview__btn weui-form-preview__btn_primary"
+					href="javascript:">取消</button>
+			</div>
+		</div>
+
+
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+
+		<script>
+			$(function() {
+				$("#store_days").html(sessionStorage.getItem("days") + "天")
+				$("#store_addr").html(sessionStorage.getItem("store_addr"));
+				$("#order_type").html("行李箱类：" + sessionStorage.getItem("luggage_num") + "件" + " " +
+					"背包类：" + sessionStorage.getItem("bag_num") + "件");
+				//取出天数差
+				var days = sessionStorage.getItem("days");
+				//定义价格=======行李箱10元/天=======背包5元/天
+				$("#order_money").html("¥" + (sessionStorage.getItem("luggage_num") * 10 + sessionStorage.getItem(
+					"bag_num") * 5) * days + "元");
+
+				console.log("¥" + (sessionStorage.getItem("luggage_num") * 10 + sessionStorage.getItem("bag_num") * 5) *
+					days + "元");
+			});
+
+			$("#btn-sure").click(function() {
+				//取得订单所有信息
+				//用户账户id
+				var user_id = sessionStorage.getItem("user_id");
+				//寄存点id
+				var store_id = sessionStorage.getItem("store_id");
+				//存取时间
+				var enter_time = sessionStorage.getItem("enter_time");
+				//取出时间
+				var out_time = sessionStorage.getItem("out_time");
+				//取出天数差
+				var days = sessionStorage.getItem("days");
+				//寄存地址
+				var store_addr = sessionStorage.getItem("store_addr");
+				//行李箱数量
+				var luggage_num = sessionStorage.getItem("luggage_num");
+				//背包数量
+				var bag_num = sessionStorage.getItem("bag_num");
+				//订单金额
+				var order_money = (sessionStorage.getItem("luggage_num") * 10 + sessionStorage.getItem("bag_num") * 5) *
+					days;
+
+				var cbcOrder = {
+					userId: user_id,
+					storeId: store_id,
+					enterTime: enter_time,
+					outTime: out_time,
+					luggageNum: luggage_num,
+					bagNum: bag_num,
+					orderMoney: order_money,
+					orderCode: Math.ceil(Math.random() * 100000000),
+					orderState: 1
+				};
+
+				sendRequest("cbcorder/save", JSON.stringify(cbcOrder), function(result) {
+					if (result.code == 0) { //成功
+						$.toast("下单成功", function() {
+							//下单成功,跳转☞订单界面
+							location.href = "order.html";
+							//清除存储的数据
+							sessionStorage.removeItem("luggage_num");
+							sessionStorage.removeItem("bag_num");
+							sessionStorage.removeItem("enter_time");
+							sessionStorage.removeItem("out_time");
+							sessionStorage.removeItem("days");
+							sessionStorage.removeItem("store_id");
+							sessionStorage.removeItem("store_addr");
+							sessionStorage.removeItem("store_city");
+							sessionStorage.removeItem("luggage_null");
+							sessionStorage.removeItem("bag_null");
+							sessionStorage.removeItem("store_state");
+						});
+					} else if ((result.code == 1)) { //失败
+						$.alert(result.msg);
+					}
+				})
+
+			})
+
+			$("#btn-cancel").click(function() {
+
+				sessionStorage.removeItem("luggage_num");
+				sessionStorage.removeItem("bag_num");
+				sessionStorage.removeItem("enter_time");
+				sessionStorage.removeItem("out_time");
+				sessionStorage.removeItem("days");
+				sessionStorage.removeItem("store_id");
+				sessionStorage.removeItem("store_addr");
+				sessionStorage.removeItem("store_city");
+				sessionStorage.removeItem("luggage_null");
+				sessionStorage.removeItem("bag_null");
+				sessionStorage.removeItem("store_state");
+
+				window.location.href = 'store.html';
+			})
+		</script>
+	</body>
+</html>

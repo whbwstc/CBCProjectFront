@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>存不存个人中心</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/demos/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css">
+
+		<script src="layui/layui.js"></script>
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.min.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<!-- 头尾导航栏 -->
+		<script src="weui/js/include.js"></script>
+		<script src="weui/js/config.js"></script>
+	</head>
+	<body ontouchstart>
+
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+
+		<header class='demos-header'>
+			<div class="demos-title">
+				<img src="image/col_08.jpg" />
+				<!-- 成功登录之后存到session域里 -->
+				<p id="user_name" style="font-size: 18px;color: gold;">无</p>
+			</div>
+		</header>
+
+		<div class="weui-cells">
+			<a class="weui-cell" href="javascript:;">
+				<!-- <div class="weui-cell__hd"><img src="weui/demos/images/avatar.jpg" alt="" style="width:20px;margin-right:5px;display:block"></div> -->
+				<div class="weui-cell__bd">
+					<p>我的手机：</p>
+				</div>
+				<div id="user_phone" class="weui-cell__ft">无</div>
+			</a>
+
+			<a class="weui-cell" href="javascript:;">
+				<!-- <div class="weui-cell__hd"><img src="image/col_h13.jpg" alt="" style="width:20px;margin-right:5px;display:block"></div> -->
+				<div class="weui-cell__bd ">
+					<p>我的积分：</p>
+				</div>
+				<div id="user_score" class="weui-cell__ft">100</div>
+			</a>
+
+			<a class="weui-cell" href="javascript:;">
+				<!-- <div class="weui-cell__hd"><img src="image/col_h14.jpg" alt="" style="width:20px;margin-right:5px;display:block"></div> -->
+				<div class="weui-cell__bd">
+					<p>我的余额：</p>
+				</div>
+				<div id="user_money" class="weui-cell__ft">无</div>
+			</a>
+		</div>
+		<div class="demos-title" style="margin-top: 50px;">
+			<a id="reLog" href="javascript:exitLogin()"
+				class="layui-btn layui-btn-lg layui-btn-radius layui-btn-warm">切换账号</a>
+		</div>
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+		<script>
+			$(function() {
+				var user_id = sessionStorage.getItem("user_id");
+				sendRequestGet("cbcuser/info/" + user_id, {}, function(result) {
+					if (result.code == 0) {
+						$("#user_phone").html(result.data.userPhone);
+						$("#user_name").html(result.data.userName);
+						$("#user_score").html(result.data.userScore);
+						$("#user_money").html('¥' + result.data.userMoney + '.00');
+					} else if (result.code == 1) {
+						$.alert(result.msg);
+					}
+				})
+			});
+
+			function exitLogin() {
+				//删除token
+				sessionStorage.removeItem("token");
+				sessionStorage.removeItem("order_code");
+				sessionStorage.removeItem("user_id");
+				sessionStorage.removeItem("acc_name");
+				window.location.href = "login.html";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>存不存官网平台-用户后台</title>
+		<link rel="stylesheet" href="../css/CBC.css" />
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+
+		<style>
+			#all{
+		background-color: #f6f6f6;
+		width: 100%;
+		height: 850px;
+	}
+	#div1{
+		background-color:#fff;
+		width:1000px;
+		height:750px;
+		position:relative;
+		padding: 36px 30px;
+		margin:0 auto;
+	}	
+	
+	#div2{
+		background-color: #ffffff;
+		width: 860px;
+		height: 150px;
+		padding-top: 30px;
+	}
+	
+	#Default{
+		width: 100px;
+		height: 90px;
+		padding-top: 20px;
+		padding-left: 100px;
+		float: left;
+	}
+	
+	#Default1{
+		padding-top: 50px;
+		padding-left: 100px;
+		float: left;
+	}
+	
+	#div3{
+		background-color:#fff;
+		position:relative;
+		padding-left: 80px;
+		margin:0 auto;
+	}
+	#dt1,#dt2{
+		width: 120px;
+		height: 30px;
+		padding-top: 50px;
+		padding-left: 30px;
+		float: left;
+	}
+	
+	#dd1{
+		width:630px;
+		height: 165px;
+		padding-top: 50px;
+		padding-left: 50px;
+		float: left;
+		border: ;
+	}
+	
+	#dd2{
+		width:630px;
+		height: 165px;
+		padding-top: 50px;
+		padding-left: 10px;
+		float: left;
+	}
+	
+	#input1{
+		border: none;
+		width: 192px;
+		padding-left: 40px;
+		text-align: center;
+	}
+	#input2,#input3,#input4,#input5,#input6 {
+		border: none;
+		padding-left: 40px;
+		width: 192px;
+		text-align: center;
+	}
+	
+</style>
+	</head>
+
+	<body>
+
+		<div id="all">
+			<div class="top">
+				<div class="top_box">
+					<div class="logo"><a href=""><img height="65px" src="../images/a_02.png"></a></div>
+					<div class="nav">
+						<ul>
+							<li><a href="index.html">首页</a></li>
+							<li><a href="personalPage.html">行李寄存</a></li>
+							<li><a href="reservation/reservation.html">预定须知</a></li>
+							<li><a href="process/process.html">寄存流程</a></li>
+							<li><a href="service/service.html">服务与帮助</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!--选项卡用来操作订单等数据，实现增删改查-->
+			<div id="div1">
+				<div class="layui-tab">
+					<ul class="layui-tab-title">
+						<li class="layui-this">个人信息</li>
+						<li>寄存下单</li>
+						<li>我的订单</li>
+						<li>意见反馈</li>
+					</ul>
+
+					<div class="layui-tab-content">
+
+						<!-- 个人信息 -->
+						<div class="layui-tab-item layui-show">
+							<div id="div2">
+								<!--个人信息-->
+								<dl>
+									<dd id="Default">
+										<img src="../images/col_08.jpg" width="80px" height="80px" />
+									</dd>
+									<dd id="Default1">
+										会员
+<!-- 										<span style="padding-left: 20px;">
+											<input type="button" class="layui-btn layui-btn-sm layui-btn-warm " value="修改" />
+										</span> -->
+										&nbsp;&nbsp;&nbsp;
+										| &nbsp;&nbsp;&nbsp;&nbsp; 常用卡：240000000886181139 &nbsp;&nbsp;&nbsp;&nbsp;
+										资料完成度：&nbsp;&nbsp;
+										<div style="padding-top: 10px; float: right;">
+											<div class="layui-progress" style="width: 150px; float: right;">
+												<div class="layui-progress-bar layui-bg-red" lay-percent="40%"></div>
+											</div>
+										</div>
+
+
+										<br>
+									</dd>
+								</dl>
+							</div>
+
+							<div id="div3">
+								<dl>
+									<dt id="dt1">
+										基本信息
+									</dt>
+									<dd id="dd1">
+										<ul>
+											<li>
+												<span>用户ID</span>
+												<input id="input1" type="text" readonly="readonly" value="1" />
+												<hr class="layui-bg-gray">
+											</li>
+											<li>
+												<span>用户昵称</span>
+												<input id="input2" type="text" readonly="readonly" value="存不存" />
+												<button id="alterName" class="layui-btn layui-btn-xs layui-btn-warm">修改</button>
+												<hr class="layui-bg-gray">
+											</li>
+											<li>
+												<span>用户邮箱</span>
+												<input id="input3" type="text" readonly="readonly" value="********qq.com" />
+												<button id="alterEmail" class="layui-btn layui-btn-xs layui-btn-warm">修改</button>
+												<hr class="layui-bg-gray">
+											</li>
+											<li>
+												<span>用户电话</span>
+												<input id="input4" type="text" readonly="readonly" value="***********" />
+												<hr class="layui-bg-gray">
+											</li>
+											<li>
+												<span>账户余额</span>
+												<input id="input5" type="text" readonly="readonly" value="0" />
+												<hr class="layui-bg-gray">
+											</li>
+											<li>
+												<span>账户积分</span>
+												<input id="input6" type="text" readonly="readonly" value="0" />
+												<hr class="layui-bg-gray">
+											</li>
+										</ul>
+									</dd>
+								</dl>
+							</div>
+						</div>
+
+						<!-- 寄存下单 -->
+						<div class="layui-tab-item">
+							<table id="table1" class="layui-table" lay-filter="table1"> </table>
+						</div>
+
+						<!-- 我的订单 -->
+						<div class="layui-tab-item">
+							<table id="table2" class="layui-table" lay-filter="table2"> </table>
+						</div>
+
+						<!-- 意见反馈 -->
+						<div class="layui-tab-item">
+
+							<form class="layui-form" action="">
+								<div class="container col-lg-11 ">
+									<div class="layui-form-item layui-form-text">
+										<label class="layui-form-label">建议：</label>
+										<div class="layui-input-block">
+											<textarea id="adviceText"  lay-verify="required" lay placeholder="您的意见与建议就是我们的动力" class="layui-textarea"></textarea>
+										</div>
+									</div>
+									
+<!-- 									<div class="layui-form-item layui-form-text">
+										<label class="layui-form-label">上传：</label>
+										<div class="layui-input-block">
+											<div class="layui-upload-drag" id="test10">
+											  <i class="layui-icon"></i>
+											  <p>点击上传，或将文件拖拽到此处</p>
+											  <div class="layui-hide" id="uploadDemoView">
+											    <hr>
+											    <img src="" alt="上传成功后渲染" style="max-width: 196px">
+											  </div>
+											</div>
+										</div>
+									</div> -->
+									
+									<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">邮箱：</label>
+											<div class="layui-input-block">
+												<input type="text" name="email"  lay-verify="required" placeholder="以便我们给您回复" autocomplete="off" class="layui-input">
+											</div>
+									</div>
+									
+									<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">其他：</label>
+											<div class="layui-input-block">
+												<input type="text" name="email" lay-verify="required"  placeholder="QQ或手机号码" autocomplete="off" class="layui-input">
+											</div>
+									</div>
+									<!-- 评分 -->
+									<!-- <div id="test5"></div> -->
+									
+									<div class="layui-form-item">
+										<div class="layui-input-block" style="text-align: center;">
+											<button type="submit" class="layui-btn layui-btn-warm" lay-submit="" lay-filter="demo1">立即提交</button>
+											<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--页脚-->
+		<script src="../js/footer.js"></script>
+		<script src="index.js"></script>
+
+	</body>
+	<script type="text/javascript" src="personalPage.js"></script>
+
+	<script type="text/html" id="barDemo">
+		<a class="layui-btn layui-btn-warm layui-btn-xs" id="store" lay-event="store">寄存</a>
+	</script>
+	<script type="text/html" id="barDemo2">
+		<a class="layui-btn layui-btn-warm  layui-btn-xs" id="pick_up" lay-event="pick_up">取件</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" id="evaluate" lay-event="evaluate">评价</a>
+	</script>
+</html>

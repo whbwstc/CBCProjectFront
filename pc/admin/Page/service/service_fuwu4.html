@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="icon" href="../../中级项目imges/title.png" type="image/x-icon">
+		<!--导入css-->
+		<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/text/css" href="../../lib/layui/css/modules/layer/default/layer.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/CBC.css" />
+		<!--导入js jquery-->
+		<script type="text/javascript" src="../../lib/layui/lay/modules/layer.js"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<style>
+			#font177,#font150,#font26,#font15{
+				font-size: 40px;
+				font-family:"微软雅黑";
+				font-weight: 100;
+				line-height: 48px;
+				letter-spacing: 3px;
+				padding-bottom: 18px;
+				float: left;
+				margin-left: 70px;
+			}
+			#font1,#font2,#font3,#font4{
+				font-size: 14px;
+				font-family:"微软雅黑";
+				font-weight: 100;
+				line-height: 48px;
+				letter-spacing: 3px;
+				padding-bottom: 18px;
+				padding-right: 60px;
+				display: inline-block;
+				transform: translateY(-15px);
+				margin-top: 10px;
+			}
+			
+			#p1,#p2,#p3,#p4{
+				line-height: 26px;
+				color: #404040;
+				padding: 15px 10px 0 10px;
+				font-size: 12px;
+				font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+			}
+			
+			#cj1,#cj2,#cj3,#cj4,#cj5,#cj6,#cj7,#cj8{
+				font-size: 16px;
+				font-weight: normal;
+				margin-left: 22px;
+				padding-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--第一部分:导航-->
+		<div class="col-lg-12" style="height: 420px;padding-top: 50px; width: 100%; background-image: url(../../中级项目imges/须知_01.jpg);">
+			<div>
+				<ul class="nav  nav-pills navbar-right" style="margin-right:100px;" ;>
+					<li><a class="a1" href="../index.html" style="color: black;">首页</a></li>
+					<li><a class="a2" href="#" style="color: black;" onclick="btnClick()">行李寄存</a></li>
+					<li><a class="a3" href="../reservation/reservation.html" style="color: black;">预定须知</a></li>
+					<li><a class="a4" href="../process/process.html" style="color: black;">寄存流程</a></li>
+					<li><a class="a5" href="service.html" style="color: black;">服务与帮助</a></li>
+					<li id="loginIndexLi1"><a href="../login.html" style="color: black; ">登录|注册</a></li>
+					<li id="exitLogin" style=" display: none;"><a href="javascript:exitLogin()" style="color: black;">已登录，注销</a></li>
+				</ul>
+			</div>
+			<div><span style="margin-left: 400px;"><img src="../../中级项目imges/logo1.png" /></span></div>
+		</div>
+
+		<div class="service">
+			<div class="service_left">
+				<ul>
+					<li class="on"><a href="service.html">服务与帮助</a></li>
+
+					<li><a href="service_fuwu1.html">什么是“存不存”？</a></li>
+
+					<li><a href="service_fuwu2.html">如果我的行李遗失怎么办?</a></li>
+
+					<li><a href="service_fuwu3.html">我把行李放在寄存点安全吗?</a></li>
+
+					<li><a href="service_fuwu4.html">我可以取消预定吗?</a></li>
+
+					<li><a href="service_fuwu5.html">什么时候可以存取我的行李物品?</a></li>
+
+					<li><a href="service_fuwu6.html">我可以直接到店里寄存吗？</a></li>
+
+					<li><a href="service_fuwu7.html">哪些物品不可以寄存？</a></li>
+
+					<li><a href="service_fuwu8.html">行李大小有限制吗？</a></li>
+
+					<li><a href="service_fuwu9.html">我寄存的行李物品可以叫人代领回吗?</a></li>
+
+					<li><a href="service_fuwu10.html">寄存费用如何计算</a></li>
+
+					<li><a href="service_fuwu11.html">如有问题，我该怎样联系？</a></li>
+
+				</ul>
+			</div>
+
+			<div class="service_right">
+				<h2>我可以取消预定吗?</h2>
+				<div class="icon">
+					<img src="../../中级项目imges/须知_07.jpg" /></div>
+				<br />
+				<br />
+				<h5 style="font-size:18px;">
+					我可以取消预定吗?</h5>
+				<p style="font-size:16px; line-height:30px;">
+					当天的预定不能取消，预约的可在寄存前一天下午18点之前取消。如果短时间内重复下单多个不同寄存点，并且无理由立即取消的，预订款不予退还。</p>
+			</div>
+		</div>
+
+
+
+		<!-- 页脚 -->
+		<div class='col-lg-12' style='text-align: center; margin-top: 80px;'>
+			<div style='background-color: #f7f7f7; height: 200px; width: 100%;padding-left: 150px;'>
+
+				<div style='border: 1px solid #f3f8fb;height: 200px;width: 1100px;'>
+					<table style='margin-top:30px; width: 100%;height: 100px; font-size: 12px;'>
+						<tbody>
+							<tr>
+								<td>咨询邮箱</td>
+								<td>手机站扫站</td>
+								<td>关注存不存</td>
+								<td><a href='#'>我要寄存</a></td>
+								<td><a href='#'>预定须知</a></td>
+							</tr>
+							<tr>
+								<td>
+									<h4>E-mail:cbcstorage@hotmail.com</h4>
+								</td>
+								<td>
+									<img src='../../中级项目imges/页脚.png' /></td>
+								<td>
+									<a href='javascript:btnClick3()'><img src='../../中级项目imges/页脚1.png' /></a>
+									<a href='javascript:btnClick2()'><img src='../../中级项目imges/页脚2.png' /></a>
+								</td>
+								<td><a href='#'>关于存不存</a></td>
+								<td><a href='#'>预定流程</a></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><a href='#'>服务与帮助</a></td>
+								<td><a href='#'>商务合作</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div id='c2' style='height: 200px;margin-top: 80px; font-size: 12px;font-family: 微软雅黑, Arial, Helvetica'>
+				<div style='margin-top: 10px;'>© 2019 www.cunbcX.com 存不存版权所有</div>
+				<div style='margin-top: 10px;'>备案号： 苏ICP备19009XXX号 苏公网安备案 营业执照MA1WRXXXX 存不存保障计划</div>
+				<div style='margin-top: 10px;'>
+					地址：
+					<a href='#'>南京市江宁区秣陵街道科建路XXX号</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../reservation/reservation.js"></script>
+</html>

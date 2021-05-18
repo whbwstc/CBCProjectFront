@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>存不存官网</title>
+		<link rel="icon" href="../中级项目imges/title.png" type="image/x-icon">
+		<!--导入css-->
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/text/css" href="../lib/layui/css/modules/layer/default/layer.css" />
+		<!--导入js jquery-->
+		<script type="text/javascript" src="../lib/layui/lay/modules/layer.js"></script>
+		<script type="text/javascript" src="../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<style>
+			#font177,#font150,#font26,#font15{
+				font-size: 40px;
+				font-family:"微软雅黑";
+				font-weight: 100;
+				line-height: 48px;
+				letter-spacing: 3px;
+				padding-bottom: 18px;
+				float: left;
+				margin-left: 70px;
+			}
+			#font1,#font2,#font3,#font4{
+				font-size: 14px;
+				font-family:"微软雅黑";
+				font-weight: 100;
+				line-height: 48px;
+				letter-spacing: 3px;
+				padding-bottom: 18px;
+				padding-right: 60px;
+				display: inline-block;
+				transform: translateY(-15px);
+				margin-top: 10px;
+			}
+			
+			#p1,#p2,#p3,#p4{
+				line-height: 26px;
+				color: #404040;
+				padding: 15px 10px 0 10px;
+				font-size: 12px;
+				font-family: 微软雅黑, Arial, Helvetica, sans-serif;
+			}
+			
+			#cj1,#cj2,#cj3,#cj4,#cj5,#cj6,#cj7,#cj8{
+				font-size: 16px;
+				font-weight: normal;
+				margin-left: 22px;
+				padding-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--第一部分:导航-->
+		<div class="col-lg-12" style="height: 660px;padding-top: 50px; width: 100%; font-size: 16px; background-image: url(../中级项目imges/导航.png);">
+			<div>
+				<ul class="nav  nav-pills navbar-right" style="margin-right:100px;" ;>
+					<li><a class="a1" href="index.html" style="color: black;">首页</a></li>
+					<li><a class="a2" href="#" style="color: black;" onclick="btnClick()">行李寄存</a></li>
+					<li><a class="a3" href="reservation/reservation.html" style="color: black;">预定须知</a></li>
+					<li><a class="a4" href="#btn1" style="color: black;">寄存流程</a></li>
+					<li><a class="a5" href="service/service.html" style="color: black;">服务与帮助</a></li>
+					<li id="loginIndexLi1"><a href="login.html" style="color: black; ">登录|注册</a></li>
+					<li id="exitLogin" style=" display: none;"><a href="javascript:exitLogin()" style="color: black;">已登录，注销</a></li>
+				</ul>
+			</div>
+			<div><span style="margin-left: 400px;"><img src="../中级项目imges/logo1.png" /></span></div>
+		</div>
+
+		<!--第二部分 我要寄存-->
+		<div class="container">
+			<div class="col-lg-8 col-lg-offset-2" style="text-align: center;margin-top: 50px;">
+				<h2>我要寄存行李</h2>
+				<h3 style="margin-top:5px;  color:red;font-weight:bold;">——</h3>
+				<h5 style="margin-top: 5px; color:gray; font-size: 15px; line-height: 30px;">存不存为用户提供行李寄存服务，让人们放下负担，轻松出行</h5>
+				<br />
+				<button type="button" class="btn btn-warning" onclick="btnClick()" style="color: #000000;width: 150px;margin-top: 20px;  font-size: 16px;background: #fbc02d;">我要寄存</button>
+			</div><br /><br />
+		</div>
+
+		<!--第三部分 存不存介绍-->
+		<div>
+			<div class="container col-lg-4 col-lg-offset-4" style="text-align: center;margin-top: 50px;">
+				<h2>存不存介绍</h2>
+				<h3 style="margin-top: 5px; color:red;font-weight:bold;">——</h3>
+			</div>
+
+			<div class="col-lg-8 col-lg-offset-2" style="text-align: center; margin-top: 10px;">
+				<h5 style="font-size:16px;color:gray; line-height: 30px;">
+					“存不存”隶属于长沙科技商贸有限公司，是一家短期行李物品寄存平台。用户可以通过线上查找附近的寄存点来寄存行李，商家也可以通过网站出租闲置的空间。我们致力于为大家提供方便快捷的行李寄存服务，以优惠的价格，解决大家出行寄存难的问题，让每个人都能够放下行李，享受轻松自在的旅行。
+				</h5>
+			</div>
+
+			<div>
+				<img style="margin-top: 50px; width: 100%" src="../中级项目imges/中部.png" />
+			</div>
+			<div style="text-align: center; background-color:#fbc02d; height: 200px;"  id="btn1">
+				<ul class="container col-lg-8 col-lg-offset-2 nav nav-pills navbar-left" style="margin-top: 30px;">
+					<li style="width: 237px;height: 90px; margin-top: 20px; border-right:1px solid #000000;">
+						<h2 id="font177">177</h2>
+						<span id="font1">+</span>
+						<div>
+							<p>储存点选择</p>
+						</div>
+					</li>
+					<li style="width: 237px;height: 90px;margin-top: 20px; border-right:1px solid #000000;">
+						<h2 id="font150">150</h2>
+						<span id="font2">家</span>
+						<div>
+							<p>点位加盟商家</p>
+						</div>
+					</li>
+					<li style="width: 237px;height: 90px; margin-top: 20px; border-right:1px solid #000000;">
+						<h2 id="font26">26</h2>
+						<span id="font3">+</span>
+						<div>
+							<p>覆盖城市</p>
+						</div>
+					</li>
+					<li style="width: 237px;height:90px; margin-top: 20px;">
+						<h2 id="font15">15</h2>
+						<span id="font4">+</span>
+						<div>
+							<p>覆盖省份</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--第三部分 寄存流程-->
+		<div class="container" style="width: 100%; background-color: #f3f8fb;height: 500px;">
+
+			<div class="col-lg-4 col-lg-offset-4" style="text-align: center;margin-top: 50px;">
+				<h2>平台寄存流程</h2>
+				<h3 style="margin-top: 5px; color:red;font-weight:bold;">——</h3>
+			</div>
+
+			<div class="col-lg-10 col-lg-offset-2" style="padding-top: 50px;">
+				<ul class="nav nav-pills navbar-left">
+					<li>
+						<img src="../中级项目imges/流程1.png" />
+						<img style="padding: 0px 20px 0px 20px;" src="../中级项目imges/L1.png" />
+						<div style="width: 175px;">
+							<p id="p1">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+					<li>
+						<img src="../中级项目imges/流程2.png" />
+						<img style="padding: 0px 20px 0px 20px;" src="../中级项目imges/L2.png" />
+						<div style="width: 175px;">
+							<p id="p2">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+					<li>
+						<img src="../中级项目imges/流程3.png" />
+						<img style="padding: 0px 20px 0px 20px;" src="../中级项目imges/L3.png" />
+						<div style="width: 175px;">
+							<p id="p3">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+					<li>
+						<img src="../中级项目imges/流程4.png" />
+						<div style="width: 175px;">
+							<p id="p4">打开电脑或手机，搜寻存不存平台，新用户先注册，老用户直接登录</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div><br />
+
+
+		<!--第四部分 平台应用场景-->
+		<div>
+			<div class="container col-lg-4 col-lg-offset-4" style="text-align: center;margin-top: 50px;">
+				<h2>平台应用场景</h2>
+				<h3 style="margin-top: 5px; color:red;font-weight:bold;">——</h3>
+			</div>
+
+			<div class="col-lg-8 col-lg-offset-2" style="text-align: center; margin-top: 10px;">
+				<h5 style="font-size:16px;color:gray; line-height: 30px;">
+					在如下一些场景，用户为了方便购物、游玩、运动，需要把携带的背包、行李、衣物等物品找地方临时寄存起来
+				</h5>
+			</div>
+
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景1.png" />
+					<div style="background-color: #ff6666; width: 243px;height: 80px; color: white;">
+						<div id="cj1">游泳池</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了健身运动存放行李</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景2.png" />
+					<div style="background-color: #ffb000; width: 243px;height: 80px;color: white;">
+						<div id="cj2">飞机场</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">需要把携带的背包、行李、衣物</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景3.png" />
+					<div style="background-color: #36c48f; width: 243px;height: 80px; color: white;">
+						<div id="cj3">商场购物</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了方便购物提供寄存</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景4.png" />
+					<div style="background-color: #404a54; width: 243px;height: 80px; color: white;">
+						<div id="cj4">地铁出行</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了方便旅游存放行李</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景5.png" />
+					<div style="background-color: #06c7cb; width: 243px;height: 80px; color: white;">
+						<div id="cj5">酒吧</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了健身运动存放行李</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景6.png" />
+					<div style="background-color: #1456eb; width: 243px;height: 80px; color: white;">
+						<div id="cj6">火车站</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">需要把携带的背包、行李、衣物</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景7.png" />
+					<div style="background-color: #b9416e; width: 243px;height: 80px; color: white;">
+						<div id="cj7">超市</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">用户为了方便购物提供寄存</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<img src="../中级项目imges/场景8.png" />
+					<div style="background-color: #524941; width: 243px;height: 80px; color: white;">
+						<div id="cj8">旅游景点</div><br />
+						<div style="margin-left: 20px;font-size: 12px;">需要把携带的背包、行李、衣物</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--第六部分 页脚-->
+		<script src="../js/footer.js"></script>
+	</body>
+	
+	<script type="text/javascript" src="./index.js"></script>
+</html>

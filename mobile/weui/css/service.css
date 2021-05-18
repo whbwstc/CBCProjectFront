@@ -1,0 +1,27 @@
+.div1{
+	display: flex;  
+}
+.div2{
+	display: flex; 
+	padding-bottom: 50px;
+}
+.div_img,.div_content{
+	width: 120px;
+	height: 120px;
+	margin: 30px;
+}
+.div_content{
+	font-size: 14px;
+	font-family: "arial narrow";
+	font-weight: bold;
+	color: #777777;
+}
+#div_title{
+	margin-top: 20px;
+	color:#5F646E;
+	font-weight: bold;
+	font-size: 32px;
+	align-items: center; 
+	justify-content: center;  
+	display: flex;  
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>寄存选择</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/js/store_add.js"></script>
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		<style type="text/css">
+			* {
+				touch-action: pan-y;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+		<img src="image/guide0.png" style="height: 100px;width: 100%;">
+
+		<div class="weui-cells weui-cells_form">
+
+
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="date" class="weui-label">寄存时间：</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="enter_time" type="text" placeholder="请选择寄存时间" value="">
+				</div>
+			</div>
+
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="date" class="weui-label">取件时间：</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" id="out_time" type="text" placeholder="请选择取件时间" value="">
+				</div>
+			</div>
+
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="" class="weui-label">寄存物品：</label></div>
+			</div>
+
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<p>行李箱类</p>
+				</div>
+				<div class="weui-cell__ft">
+					<div class="weui-count">
+						<a class="weui-count__btn weui-count__decrease"></a>
+						<input class="weui-count__number" type="number" id="luggage_num" value="0"
+							disabled="disabled" />
+						<a class="weui-count__btn weui-count__increase"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<p>背包类</p>
+				</div>
+				<div class="weui-cell__ft">
+					<div class="weui-count">
+						<a class="weui-count__btn weui-count__decrease"></a>
+						<input class="weui-count__number" type="number" id="bag_num" value="0" disabled="disabled" />
+						<a class="weui-count__btn weui-count__increase"></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!---->
+		<div class="weui-btn-area">
+			<a class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius"
+				style="background: gold; color: white; width: 100%;" href="javascript:;" id="btn-order">下单</a>
+		</div>
+
+
+		<div class="weui-btn-area">
+			<a class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius"
+				style="background: gold; color: white; width: 100%;" href="store.html" id="btn-cancel">取消</a>
+		</div>
+
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+
+		<script>
+			var bagMAX = sessionStorage.getItem("bag_null"),
+				luggageMAX = sessionStorage.getItem("luggage_null"),
+				MIN = 0;
+			var today = new Date();
+			var minDate = today.toLocaleDateString();
+			//取出后删除空位数量
+			//sessionStorage.removeItem("store.bag_null");
+			//sessionStorage.removeItem("store.luggage_null");
+			$('.weui-count__decrease').click(function(e) {
+				var $input = $(e.currentTarget).parent().find('.weui-count__number');
+				var number = parseInt($input.val() || "0") - 1
+				if (number < MIN) number = MIN;
+				$input.val(number)
+			})
+			$('.weui-count__increase').click(function(e) {
+				var $input_bag = $(e.currentTarget).parent().find('#bag_num');
+				var $input_luggage = $(e.currentTarget).parent().find('#luggage_num');
+				var bag_num = parseInt($input_bag.val() || "0") + 1
+				var luggage_num = parseInt($input_luggage.val() || "0") + 1
+				if (bag_num > bagMAX) bag_num = bagMAX;
+				$input_bag.val(bag_num)
+				if (luggage_num > luggageMAX) luggage_num = luggageMAX;
+				$input_luggage.val(luggage_num)
+			})
+
+			$('.delete-swipeout').click(function() {
+				$(this).parents('.weui-cell').remove()
+			})
+			$('.close-swipeout').click(function() {
+				$(this).parents('.weui-cell').swipeout('close')
+			})
+
+			$(function() {
+				FastClick.attach(document.body);
+			});
+
+			$("#enter_time").calendar({
+				minDate: [minDate],
+				onChange: function(p, values, displayValues) {
+					// console.log(values, displayValues);
+				}
+			});
+			$("#out_time").calendar({
+
+				minDate: [minDate],
+				onChange: function(p, values, displayValues) {
+					//console.log(values, displayValues);
+				}
+			});
+
+			$("#btn-order").click(function() {
+
+				var enter_time = $("#enter_time").val();
+				var out_time = $("#out_time").val();
+				var luggage_num = $("#luggage_num").val();
+				var bag_num = $("#bag_num").val();
+
+				if (!enter_time) {
+					$.alert("请选择寄存时间")
+				} else if (!out_time) {
+					$.alert("请选择取件时间")
+				} else if (luggage_num == 0 && bag_num == 0) {
+					$.alert("请至少选择一种寄存类型进行下单")
+				} else {
+					sendRequestParam("cbcorder/countDayPC", {
+						enter_time: enter_time,
+						out_time: out_time
+					}, function(result) {
+						if (result.code == 0) {
+							sessionStorage.setItem("days", result.data + 1);
+							sessionStorage.setItem("enter_time", enter_time);
+							sessionStorage.setItem("out_time", out_time);
+							sessionStorage.setItem("luggage_num", luggage_num);
+							sessionStorage.setItem("bag_num", bag_num);
+
+							location.href = 'store_order.html';
+							//加了1天
+						} else {
+							$.alert(result.msg, function() {
+								$("#enter_time").focus();
+							});
+						}
+					})
+				}
+
+
+
+			})
+		</script>
+	</body>
+</html>

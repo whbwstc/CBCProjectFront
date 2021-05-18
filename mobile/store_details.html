@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>寄存点详情</title>
+	  <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/js/city-picker.js"></script>
+		<script src="layui/layui.js" charset="utf-8"></script>
+		<script src="weui/js/store.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		
+		<link rel="stylesheet" href="weui/css/weui.css"/>
+		<link rel="stylesheet" href="weui/css/weuix.css"/>
+		
+	</head>
+	<body ontouchstart>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+		<img src="image/guide0.png" style="height: 100px;width: 100%;">
+			   
+		<div class="weui-cells weui-cells_form">
+			
+			<div class="weui-cell">
+			  <div class="weui-cell__hd"><label for="" class="weui-label">所属城市：</label></div>
+			  <div id="store_city" class="weui-cell__bd"></div>
+			</div>
+			
+			<div class="weui-cell">
+			  <div class="weui-cell__hd"><label for="" class="weui-label">地址：</label></div>
+			  <div id="store_addr" class="weui-cell__bd"></div>
+			</div>
+			
+			<div class="weui-cell">
+			  <div class="weui-cell__hd"><label for="" class="weui-label">行李箱空位：</label></div>
+			  <div id="luggage_num" class="weui-cell__bd"></div>
+			</div>
+			
+			<div class="weui-cell">
+			  <div class="weui-cell__hd"><label for="" class="weui-label">背包类空位：</label></div>
+			  <div id="bag_num" class="weui-cell__bd"></div>
+			</div>
+			
+			<div class="weui-cell">
+			  <div class="weui-cell__hd"><label for="" class="weui-label">营业状态：</label></div>
+			  <div id="store_state" class="weui-cell__bd"></div>
+			</div>
+		</div>	   
+		
+		<div class="weui-btn-area">
+		  <a class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius" style="background: gold; color: white; width: 100%;" 
+		  href="javascript:;" id="btn-return">返回</a>
+		</div>
+			   
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+		
+		<script>
+			$(function() {
+				$("#store_city").html(sessionStorage.getItem("store_city"));
+				$("#store_addr").html(sessionStorage.getItem("store_addr"));
+				$("#luggage_num").html(sessionStorage.getItem("luggage_null")+"个");
+				$("#bag_num").html(sessionStorage.getItem("bag_null")+"个");
+				$("#store_state").html(sessionStorage.getItem("store_state") == 1 ? "营业":"未营业");
+			});
+			
+			$("#btn-return").click(function() {
+				sessionStorage.removeItem("store_id");
+				sessionStorage.removeItem("store_city");
+				sessionStorage.removeItem("store_addr");
+				sessionStorage.removeItem("luggage_null"); //空位数量
+				sessionStorage.removeItem("bag_null"); //空位数量
+				sessionStorage.removeItem("store_state");
+				
+				window.location.href='store.html';
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/demos/css/demos.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<script src="layui/layui.js"></script>
+		<script src="layui/lay/modules/layer.js"></script>
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<!-- 头尾导航 -->
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/lib/qrcode.js"></script>
+		<script src="weui/lib/jquery.qrcode.min.js"></script>
+	</head>
+	<style>
+		img {
+			height: 200px;
+			width: 100%;
+		}
+	</style>
+	<body>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+
+		<div class="weui-cells weui-cells_form">
+
+			<div class="page__bd">
+				<div class="weui-panel weui-panel_access">
+
+					<div class="weui-cell">
+						<div class="weui-cell__hd"><label for="name" class="weui-label">评分等级：</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" id="job" type="text" value="">
+						</div>
+					</div>
+
+					<div class="weui-cells__title">评价内容：</div>
+					<div class="weui-cells weui-cells_form">
+						<div class="weui-cell">
+							<div class="weui-cell__bd">
+								<textarea class="weui-textarea" placeholder="请写下您宝贵的评价" id="judgeText"
+									rows="3"></textarea>
+								<div class="weui-textarea-counter"><span>0</span>/200</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="weui-btn-area" style="padding-left: 40px;">
+						<a class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius click-dialog"
+							style="background: gold; color: white; width: 40%;" data-target="#update"
+							id="btn-sure">提交</a>
+						<a class="layui-btn layui-btn-lg layui-btn-warm layui-btn-radius click-dialog"
+							style="width: 40%;" href="javascript:;" id="btn-return">返回</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 尾部导航导入有问题 -->
+			<div id="footer_box"></div>
+
+	</body>
+
+	<script>
+		var judge_grade = 0;
+
+		$("#job").select({
+			title: "选择职业",
+			items: [{
+					title: "极差",
+					value: "1",
+				},
+				{
+					title: "差",
+					value: "2",
+				},
+				{
+					title: "中等",
+					value: "3",
+				},
+				{
+					title: "好",
+					value: "4",
+				},
+				{
+					title: "极好",
+					value: "5",
+				}
+			],
+			onChange: function(d) {
+				judge_grade = d.values;
+				console.log(judge_grade);
+			}
+		});
+
+		$(document).on("click", "#btn-sure", function() {
+
+			order_id = sessionStorage.getItem("order_id");
+
+			cbcJudge = {
+				orderId: order_id,
+				judgeGrade: judge_grade,
+				judgeText: $("#judgeText").val()
+			};
+
+			sendRequest("cbcjudge/update", JSON.stringify(cbcJudge), function(result) {
+				$.toast.prototype.defaults.duration = 1000;
+
+				if (result.code == 0) {
+					$.toast("评价成功！", function() {
+						location.href = "order_details.html";
+					});
+				} else {
+					$.toast("评价失败！", "cancel", function() {
+						location.href = "order_details.html";
+					});
+				}
+			})
+		});
+
+		$(document).on("click", "#btn-return", function() {
+			location.href = "order_details.html";
+		});
+	</script>
+</html>

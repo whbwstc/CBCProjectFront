@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>寄存下单</title>
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+		<script type="text/javascript" src="../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+	</head>
+	<style>
+		#input1,#input2,#input3,#input4{
+			text-align: center;
+		}
+	</style>
+	<body>
+		<div id="div1" style="padding-left: 100px;padding-top: 30px;">
+			<form class="layui-form" action="">
+			    <div class="layui-form-item">
+			        <label class="layui-form-label">寄存点：</label>
+			        <div class="layui-input-inline">
+			          <input type="text" id="input1" name="input1"  readonly="readonly"  placeholder="" autocomplete="off" class="layui-input">
+			        </div>
+			      </div>
+				
+				<div class="layui-form-item">
+				    <label class="layui-form-label">行李类数量：</label>
+				    <div class="layui-input-inline">
+				      <input type="text" id="input2" name="input2"  readonly="readonly"   placeholder="" autocomplete="off" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				  	<label class="layui-form-label">背包类数量：</label>
+				  	<div class="layui-input-inline">
+				  		<input type="text" id="input3" name="input3"  readonly="readonly"  placeholder="" autocomplete="off" class="layui-input">
+				  	</div>
+				  </div>
+				  
+				<div class="layui-form-item">
+					<label class="layui-form-label">订单金额：</label>
+					<div class="layui-input-inline">
+						<input type="text" id="input4" name="input4"   readonly="readonly"  placeholder="" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+			  <div class="layui-form-item">
+			    <div class="layui-input-block" style="padding-left: 60px;padding-top: 20px;">
+			      <button type="submit" id="demo1" class="layui-btn layui-btn-warm" lay-submit="" lay-filter="demo1">下单</button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+		
+	</body>
+	
+	<script type="text/javascript" src="consign2.js"></script>
+</html>

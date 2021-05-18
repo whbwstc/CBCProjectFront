@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员登录</title>
+<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+
+<script src="../admin/lib/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="../admin/lib/layui/css/layui.css" />
+<script type="text/javascript" src="../admin/js/jquery.min.js" ></script>
+<script type="text/javascript" src="../admin/lib/layui/layui.js"></script>
+<script type="text/javascript" src="../admin/js/config.js"></script>
+</head>
+<body>
+
+    <div style="background-image: url(../admin/images/load_01.png);">
+		<div style="margin-left: 200px;padding-top: 100px;">
+			<img src="../admin/images/logo.png">
+		</div>
+		
+		
+		<div class="" style="width: 500px; height: 600px; background-color: white; margin-left: 1000px;">
+			<br><br><br><br>
+			<div>
+				<h1 style="text-align: center;">管理员登录页面</h1>
+			</div>
+			<br><br><br>
+			
+		<form class="layui-form" action="" style="margin-left: 40px;"> 
+			<!--手机号码-->
+				<div class="layui-form-item">
+					<div class="layui-inline">
+					      <label class="layui-form-label" style="width: 110px;">邮箱:</label>
+					      <div class="layui-input-inline">
+					        <input type="text" id="email" name="email" required lay-verify="email" placeholder="请输入手机号码"  class="layui-input">
+					      </div>
+					 </div>
+				</div>
+				
+				
+				<!--密码-->
+				<div class="layui-form-item">
+					<div class="layui-inline">
+					      <label class="layui-form-label" style="width: 110px;">密码:</label>
+					      <div class="layui-input-inline">
+					        <input type="text" id="password" required lay-verify="required|password" placeholder="请输入密码"  class="layui-input">
+					      </div>
+					 </div>
+				</div>
+				<div>
+					<button class="layui-btn"  lay-submit  lay-filter="button" style="width: 50%; margin-left: 80px;margin-top: 40px;">登录</button>
+				</div>
+				
+			</form>
+			
+		</div>
+		
+	</div>
+	<script>
+layui.use(['form','layer'],function(){
+						var form = layui.form;
+						var layer = layui.layer;    
+							
+							//自定义验证规则
+							form.verify({
+								password:[
+									/^[\S]{6,18}$/, '密码格式填写错误'
+								]
+							});
+						
+						//监听提交
+						form.on('submit(button)',function(data){
+							var email = $("#email").val();
+							var password = $("#password").val();
+							
+							$.post("http://localhost:8080/CBCProject/login.do",{"email":email,"password":password,"m":"adminlogin"},function(res){
+								console.log(res.code)
+								if(res.code == 0){
+									//则登陆成功
+									location.href="index.html";
+								}else if(res.code == 1){
+								layer.msg("登陆失败")
+							}
+							
+							},"json")
+							
+							return false;
+						});		
+						
+					});		
+	
+	</script>
+	<script type="text/javascript" src="../js/footer.js"></script>
+</body>      
+</html>
+

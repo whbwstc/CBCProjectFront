@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的积分界面</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/demos/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="weui/css/myMoney.css" />
+		<script src="layui/layui.js"></script>
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.min.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<!-- 头尾导航栏 -->
+		<script type="application/javascript" src="weui/js/include.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/js/score.js"></script>
+	</head>
+	<body ontouchstart>
+		<div>
+			<p class="demos-title">我的积分</p>
+		</div>
+
+		<div id="conten" style="pointer-events: none;">
+			<div class="weui-cell weui-cell_access" href="javascript:;">
+				<div class="weui-cell__hd"><img class="layui-btn-radius" src="image/col_08.jpg" alt=""
+						style="width:50px;margin-right:5px;display:block"></div>
+				<!-- <i class="layui-icon layui-icon-diamond" style="font-size: 30px; color: #1E9FFF;"></i> -->
+				<!-- <img src="image/score.png" style="width: 50px;" alt=""> -->
+				<!-- <p id="user_score">100</p> -->积分：
+				<input type="text" id="score" name="score" value="" disabled="disabled"
+					style="font-size: 16px; width: 50px; margin-left: 10px; BACKGROUND-COLOR: transparent;border:0;" />
+				<!-- <a id="recharge" href="#" style="width: 100px;">做任务赚积分</a> -->
+			</div>
+			<div id="jifen" style="padding-top: 10px;margin-left: 10px;">积分明细&gt;&gt;</div>
+		</div>
+		<!--寄存点选择-->
+		<div id="scoreListApp" class="layui-card-body layui-table-body layui-table-main"
+			style="overflow-x: auto; overflow-y: auto; height: auto; padding-bottom: 48px;">
+			<table class="layui-table layui-form" border="0">
+				<thead>
+					<tr>
+						<th style="text-align: center;">寄存点</th>
+						<th style="text-align: center;">积分</th>
+						<th style="text-align: center;">积分时间</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr v-for="score in scoreList">
+
+						<td align="center">
+							<a style="color: black; width: 100%;">{{score.store_name}}</a>
+						</td>
+
+						<td align="center">
+							<a style="color: black; width: 100%;">{{score.score_number}}</a>
+						</td>
+
+						<td align="center">
+							<a style="color: black; width: 100%;">{{score.score_time}}</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 引入尾部 -->
+		<div id="footer_box"></div>
+	</body>
+</html>

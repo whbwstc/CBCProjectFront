@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>订单详情</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="weui/lib/weui.min.css">
+		<link rel="stylesheet" href="weui/css/jquery-weui.css">
+		<link rel="stylesheet" href="weui/css/demos.css">
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<script src="weui/lib/jquery-2.1.4.js"></script>
+		<script src="weui/lib/fastclick.js"></script>
+		<script src="weui/js/swiper.min.js"></script>
+		<script src="weui/js/jquery-weui.js"></script>
+		<script src="weui/js/config.js"></script>
+		<script src="weui/js/order.js"></script>
+		<script src="weui/js/city-picker.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script type="application/javascript" src="weui/js/include.js"></script>
+	</head>
+	<body>
+		<!-- 引入头部 -->
+		<div id="header_box"></div>
+		<!--插入图片-->
+		<img src="image/guide0.png" style="height: 100px;width: 100%;">
+		<div id="odrListApp">
+			<div v-for="odr in odrList">
+			   <div class="weui-panel weui-panel_access">
+			     <div class="weui-panel__bd">
+			       <a id="'orderDetails" @click="odrDetails(odr.order_id)" class="weui-media-box weui-media-box_appmsg">
+			         <div class="weui-media-box__bd">
+			           <h4 class="weui-media-box__title">订单编号：{{odr.order_code}}</h4>
+			           <p class="weui-media-box__desc">下单时间:{{odr.enter_time}}</p>
+			         </div>
+			       </a>
+			     </div>
+			   </div>
+			</div>
+		</div>
+		<!-- 引入尾部 -->
+		<div style="height: 50px;"></div>
+		<div id="footer_box"></div>
+	</body>
+</html>

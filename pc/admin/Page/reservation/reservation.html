@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>预定须知</title>
+		<link rel="icon" href="../../中级项目imges/title.png" type="image/x-icon">
+		<!--导入css-->
+		<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/text/css" href="../../lib/layui/css/modules/layer/default/layer.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/CBC.css" />
+		<!--导入js jquery-->
+		<script type="text/javascript" src="../../lib/layui/lay/modules/layer.js"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	</head>
+	<body>
+		<!--第一部分:导航-->
+		<div class="col-lg-12" style="height: 420px;padding-top: 50px; width: 100%; background-image: url(../../中级项目imges/须知_01.jpg);">
+			<div>
+				<ul class="nav nav-pills navbar-right" style="margin-right:100px;";>
+					<li><a class="a1" href="../index.html" style="color: black;">首页</a></li>
+					<li><a class="a2" href="#" style="color: black;" onclick="btnClick()">行李寄存</a></li>
+					<li><a class="a3" href="reservation.html" style="color: black;">预定须知</a></li>
+					<li><a class="a4" href="../process/process.html" style="color: black;">寄存流程</a></li>
+					<li><a class="a5" href="../service/service.html" style="color: black;">服务与帮助</a></li>
+					<li id="loginIndexLi1"><a href="../login.html" style="color: black; ">登录|注册</a></li>
+					<li id="exitLogin" style=" display: none;"><a href="javascript:exitLogin()" style="color: black;">已登录，注销</a></li>
+				</ul>
+			</div>
+			<div><span style="margin-left: 400px;"><img src="../../中级项目imges/logo1.png" /></span></div>
+		</div>
+
+		<div class="service">
+			<div class="service_left">
+				<ul>
+					<li class="on"><a href="reservation.html">预定须知</a></li>
+
+					<li><a href="reservation_xuzhi1.html">第一条：行李寄存服务流程</a></li>
+
+					<li><a href="reservation_xuzhi2.html">第二条：行李寄存费用及时间</a></li>
+
+					<li><a href="reservation_xuzhi3.html">第三条：行李寄存内容</a></li>
+
+					<li><a href="reservation_xuzhi4.html">第四条：损害赔偿</a></li>
+				</ul>
+			</div>
+			<div class="service_right">
+				<h2>预定须知</h2>
+				<div class="icon">
+					<img src="../../中级项目imges/须知_04.jpg" /></div>
+				<p style="font-size:16px;">
+					当您使用存不存（下称&quot;本服务&quot;）时，即被视为已阅读并同意、遵守以下所有使用条款：</p>
+				<div class="icon">
+					<img src="../../中级项目imges/须知_07.jpg" /></div>
+				<p style="font-size:16px; line-height:30px;">
+					用户一旦通过&#39;存不存&#39;平台使用寄存服务，则视为用户与用户所选择的，在&quot;存不存&quot;平台上展示的寄存点商家签订行李寄存服务协议。</p>
+				<br />
+				<h5 style="font-size:18px;">
+					第一条：行李寄存服务流程</h5>
+				<p style="font-size:16px; line-height:30px;">
+					1. 用户需在线注册验证，才能使用本服务及享有本服务保障<br />
+					2. 请真实填写用户预定信息，如信息不实者，本服务不负任何损害赔偿的责任<br />
+					3. 凭短信、邮件确认信息或预定信息到寄存点存取行李，如不能出示预定信息或凭证，寄存点有权不让取回行李物品.<br />
+					4. 请妥善保管预定确认信息，如意外情况导致确认信息丢失的，经本服务身份确认后，方可取回寄存行李物品。</p>
+				<br />
+				<br />
+				<h5 style="font-size:18px;">
+					第二条：行李寄存费用及时间</h5>
+				<p style="font-size:16px; line-height:30px;">
+					1. 行李寄存收费标准以平台制定为准<br />
+					2. 寄存行李物品需在商家的营业时间内，具体请查阅不同寄存点的营业时间<br />
+					3. 天数计算以每家寄存点最后下班时间为一天，超过到第二天取回多计算一天。24 小时营业的点以凌晨 24 点为界限，超过及多计算一天。行李寄存时间如未满一天，以一天时间计算<br />
+					4. 超过预定取回时间未领取的行李物品，本服务每天正常按照标准收费。如要领回请先补足额外寄存天数的费用。30 天之后还未领取，并且经联系后仍然没有支付寄存费用的，本服务将自行处理寄存的行李物品，不负任何赔偿责任.<br />
+					5. 当天的预定不能取消，预约的可在寄存前一天下午18点之前取消。如果短时间内重复下单多个不同寄存点，并且无理由立即取消的，预订款不予退还。</p>
+				<br />
+				<br />
+				<h5 style="font-size:18px;">
+					第三条：行李寄存内容</h5>
+				<p style="font-size:16px; line-height:30px;">
+					1.
+					严禁存放的物品包括污染性及腐蚀性的液体，有毒有害的气体，活体动物及植物，烟花爆竹及易燃易爆物品，危害公共秩序或安全的任何物品、可燃或易然材料或液体，军备、武器、弹药、化学品、放射性物质、生物制剂、石棉、骨灰、骨灰盒或其它带辐射性的材料等危险物品以及中国法律法规所禁止的物品。<br />
+					2. 严禁存放现金，珠宝首饰，电脑等名贵高价物品.<br />
+					3. 基于公共安全考虑，寄存点商家可以要求当面检查使用者的行李物品，如遇不配合检查者，可以拒绝其寄存。如发现可疑违法物品，亦会及时上报相关部门进行处理.</p>
+				<br />
+				<br />
+				<h5 style="font-size:18px;">
+					第四条：损害赔偿</h5>
+				<p style="font-size:16px; line-height:30px;">
+					1. 寄存行李物品需包装完好，若遇寄存点过失至行李损害或遗失的, 本服务及根据行李之现值 ,承担最高 200 块的赔付责任. 如遇下列事项，本服务及寄存点不负任何赔偿责任：<br />
+					&diams; 未如实填写预定信息者<br />
+					&diams; 用户遗失预定信息或凭证，行李被人冒领者<br />
+					&diams; 行李物品包装完好，但用户说其内部物品遗失或损害而自己不能举证证实的<br />
+					&diams; 因自然灾害等其他不可抗，非人为因素造成的行李遗失或损害的</p>
+
+			</div>
+		</div>
+		
+		<!-- 页脚 -->
+		<div class='col-lg-12' style='text-align: center; margin-top: 80px;'>
+			<div style='background-color: #f7f7f7; height: 200px; width: 100%;padding-left: 150px;'>
+				
+				<div style='border: 1px solid #f3f8fb;height: 200px;width: 1100px;'>
+					<table style='margin-top:30px; width: 100%;height: 100px; font-size: 12px;'>
+						<tbody>
+							<tr>
+								<td>咨询邮箱</td>
+								<td>手机站扫站</td>
+								<td>关注存不存</td>
+								<td><a href='#'>我要寄存</a></td>
+								<td><a href='#'>预定须知</a></td>
+							</tr>
+							<tr>
+								<td>
+									<h4>E-mail:cbcstorage@hotmail.com</h4></td>
+								<td>
+									<img src='../../中级项目imges/页脚.png'/></td>
+								<td>
+									<a href='javascript:btnClick3()'><img src='../../中级项目imges/页脚1.png' /></a>
+									<a href='javascript:btnClick2()'><img src='../../中级项目imges/页脚2.png' /></a>
+								</td>
+								<td><a href='#'>关于存不存</a></td>
+								<td><a href='#'>预定流程</a></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><a href='#'>服务与帮助</a></td>
+								<td><a href='#'>商务合作</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<div id='c2' style='height: 200px;margin-top: 80px; font-size: 12px;font-family: 微软雅黑, Arial, Helvetica'>
+				<div style='margin-top: 10px;'>© 2019 www.cunbcX.com 存不存版权所有</div>
+				<div style='margin-top: 10px;'>备案号： 苏ICP备19009XXX号 苏公网安备案 营业执照MA1WRXXXX 存不存保障计划</div>
+				<div style='margin-top: 10px;'>
+					地址：
+					<a href='#'>南京市江宁区秣陵街道科建路XXX号</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="reservation.js"></script>
+</html>

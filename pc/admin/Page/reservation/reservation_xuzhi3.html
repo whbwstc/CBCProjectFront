@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="icon" href="../../中级项目imges/title.png" type="image/x-icon">
+		<!--导入css-->
+		<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/text/css" href="../../lib/layui/css/modules/layer/default/layer.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/CBC.css" />
+		<!--导入js jquery-->
+		<script type="text/javascript" src="../../lib/layui/lay/modules/layer.js"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	</head>
+	<body>
+		<!--第一部分:导航-->
+		<div class="col-lg-12" style="height: 420px;padding-top: 50px; width: 100%; background-image: url(../../中级项目imges/须知_01.jpg);">
+			<div>
+				<ul class="nav  nav-pills navbar-right" style="margin-right:100px;" ;>
+					<li><a class="a1" href="../index.html" style="color: black;">首页</a></li>
+					<li><a class="a2" href="#" style="color: black;" onclick="btnClick()">行李寄存</a></li>
+					<li><a class="a3" href="reservation.html" style="color: black;">预定须知</a></li>
+					<li><a class="a4" href="../process/process.html" style="color: black;">寄存流程</a></li>
+					<li><a class="a5" href="../service/service.html" style="color: black;">服务与帮助</a></li>
+					<li id="loginIndexLi1"><a href="../login.html" style="color: black; ">登录|注册</a></li>
+					<li id="exitLogin" style=" display: none;"><a href="javascript:exitLogin()" style="color: black;">已登录，注销</a></li>
+				</ul>
+			</div>
+			<div><span style="margin-left: 400px;"><img src="../../中级项目imges/logo1.png" /></span></div>
+		</div>
+		
+		<div class="service">
+		  <div class="service_left">
+		    <ul>
+		      <li class="on"><a href="reservation.html">预定须知</a></li>
+		      
+		      <li><a href="reservation_xuzhi1.html">第一条：行李寄存服务流程</a></li>
+		      
+		      <li><a href="reservation_xuzhi2.html">第二条：行李寄存费用及时间</a></li>
+		      
+		      <li><a href="reservation_xuzhi3.html">第三条：行李寄存内容</a></li>
+		      
+		      <li><a href="reservation_xuzhi4.html">第四条：损害赔偿</a></li>
+		      
+		    </ul>
+		  </div>
+		  <div class="service_right">
+		    	<h2>第三条：行李寄存内容</h2>
+		  	<div class="icon">
+		  	<img src="../../中级项目imges/须知_07.jpg" />
+			</div>
+		  <br />
+		  <br />
+		  <h5 style="font-size:18px;">
+		  	第三条：行李寄存内容</h5>
+		  <p style="font-size:16px; line-height:30px;">
+		  	1. 严禁存放的物品包括污染性及腐蚀性的液体，有毒有害的气体，活体动物及植物，烟花爆竹及易燃易爆物品，危害公共秩序或安全的任何物品、可燃或易然材料或液体，军备、武器、弹药、化学品、放射性物质、生物制剂、石棉、骨灰、骨灰盒或其它带辐射性的材料等危险物品以及中国法律法规所禁止的物品。<br />
+		  	2. 严禁存放现金，珠宝首饰，电脑等名贵高价物品.<br />
+		  	3. 基于公共安全考虑，寄存点商家可以要求当面检查使用者的行李物品，如遇不配合检查者，可以拒绝其寄存。如发现可疑违法物品，亦会及时上报相关部门进行处理.</p>
+		  <br />
+		  <br />
+		  
+		   </div>
+		</div>
+		
+		<!-- 页脚 -->
+		<div class='col-lg-12' style='text-align: center; margin-top: 80px;'>
+			<div style='background-color: #f7f7f7; height: 200px; width: 100%;padding-left: 150px;'>
+				
+				<div style='border: 1px solid #f3f8fb;height: 200px;width: 1100px;'>
+					<table style='margin-top:30px; width: 100%;height: 100px; font-size: 12px;'>
+						<tbody>
+							<tr>
+								<td>咨询邮箱</td>
+								<td>手机站扫站</td>
+								<td>关注存不存</td>
+								<td><a href='#'>我要寄存</a></td>
+								<td><a href='#'>预定须知</a></td>
+							</tr>
+							<tr>
+								<td>
+									<h4>E-mail:cbcstorage@hotmail.com</h4></td>
+								<td>
+									<img src='../../中级项目imges/页脚.png'/></td>
+								<td>
+									<a href='javascript:btnClick3()'><img src='../../中级项目imges/页脚1.png' /></a>
+									<a href='javascript:btnClick2()'><img src='../../中级项目imges/页脚2.png' /></a>
+								</td>
+								<td><a href='#'>关于存不存</a></td>
+								<td><a href='#'>预定流程</a></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><a href='#'>服务与帮助</a></td>
+								<td><a href='#'>商务合作</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<div id='c2' style='height: 200px;margin-top: 80px; font-size: 12px;font-family: 微软雅黑, Arial, Helvetica'>
+				<div style='margin-top: 10px;'>© 2019 www.cunbcX.com 存不存版权所有</div>
+				<div style='margin-top: 10px;'>备案号： 苏ICP备19009XXX号 苏公网安备案 营业执照MA1WRXXXX 存不存保障计划</div>
+				<div style='margin-top: 10px;'>
+					地址：
+					<a href='#'>南京市江宁区秣陵街道科建路XXX号</a>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	
+	<script type="text/javascript" src="reservation.js"></script>
+</html>

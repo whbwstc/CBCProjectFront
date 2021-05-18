@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>存不存官网平台-登录注册</title>
+		<link rel="icon" href="../中级项目imges/title.png" type="image/x-icon">
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+
+		<script src="../lib/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
+		<!--导入js-->
+		<script src="../lib/layui/layui.all.js"></script>
+		<script type="text/javascript" src="../lib/layui/lay/modules/layer.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<!--导入jquery-->
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+	</head>
+	<body>
+		<!--首图片-->
+		<div style="background-image: url(../中级项目imges/images/load_01.png);">
+
+			<div style="margin-left: 200px;padding-top: 100px;">
+				<img src="../中级项目imges/logo1.png">
+			</div>
+
+
+			<div class="" style="width: 500px; height: 550px; background-color: white; margin-left: 1000px;">
+				<div style="padding-top: 0px;">
+					<img src="../中级项目imges/导航3.jpg" width="500px" />
+				</div>
+
+				<div style="text-align: center; font-size:29px ;">
+
+					<!-- 简洁风格的Tab layui选项卡-->
+					<div class="layui-tab layui-tab-card">
+
+						<ul class="layui-tab-title " style="width: 100%; font-weight: bold;">
+							<li class="layui-this" style="width: 220px;font-size: 20px;">
+								<a id="btn" onclick="btn1()">账户登录</a></li>
+							<li style="width: 220px;font-size: 20px;">
+								<a id="btn2" onclick="btn2()">验证码登录</a></li>
+						</ul>
+						<hr />
+						<div class="layui-tab-content" style="font-size: 17px;">
+
+							<!--表单1  通过手机号密码登录-------------------------------------------------------------->
+							<div class="layui-tab-item layui-show" style="font-size: 15px;" id="div1">
+								<br><br><br>
+								<form id="form1" class="layui-form" lay-filter="form1" action="" style="margin-left: 40px;">
+									<!--手机号码-->
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 90px;">手机号:</label>
+											<div class="layui-input-inline" style="background:url(../中级项目imges/images/load_06.png) no-repeat 0 center;">
+												<input type="text" id="phone" name="phone" required lay-verify="phone" placeholder="请输入手机号码" class="layui-input"
+												 style="width: 200px;height: 40px;font-size: 15px;">
+											</div>
+										</div>
+									</div>
+
+									<!--密码-->
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 90px;">密码:</label>
+											<div class="layui-input-inline">
+												<input type="text" id="password" required lay-verify="required|password" placeholder="请输入密码" class="layui-input"
+												 style="width: 200px;height: 40px;font-size: 15px;">
+											</div>
+										</div>
+									</div>
+
+									<!--验证码-->
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 90px;">验证码:</label>
+											<div class="layui-input-inline">
+												<input type="text" id="ver" required lay-verify="required|ver" placeholder="请输入验证码" class="layui-input"
+												 style="width: 190px;height: 40px;font-size: 15px;">
+											</div>
+											<!--验证码图片-->
+											<img src="changeVerificationCode()" id="imageCode" onclick="changeVerificationCode(this)" style="height: 38px;width: 100px;" />
+										</div>
+										<div class="layui-inline" style="float: right;margin-right: 130px;margin-top: 20px;">
+											<a href="register.html">用户注册</a>
+											<span>|</span>
+											<a href="updateUserPwd.html">修改密码</a>
+											<span>|</span>
+											<a href="findpwd.html">找回密码</a>
+										</div>
+									</div>
+
+									<div>
+										<button class="layui-btn layui-btn-radius" lay-submit lay-filter="button" style="width:30%; margin-left: 150px;margin-top: 20px;">登录</button>
+									</div>
+									<br><br />
+								</form>
+							</div>
+
+
+							<!--表单2  通过手机号加手机获取验证码登录------------------------------------------------------->
+
+							<div class="layui-tab-item" style="font-size: 15px;" id="div2">
+								<br><br><br><br />
+								<form id="form2" class="layui-form" action="" style="margin-left:20 px;">
+									<!--手机号码-->
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 90px;">手机号:</label>
+											<div class="layui-input-inline">
+												<input type="text" id="phone2" name="phone2" required lay-verify="phone" placeholder="请输入手机号"
+												 class="layui-input" style="width: 200px;height: 40px;">
+											</div>
+											<!--获取验证码-->
+											<input type="button" name="button" id="button" value="获取验证码" style="height: 40px;margin-left: 20px;" onclick="setMsg()"
+											 class="layui-btn layui-btn-danger" />
+										</div>
+									</div>
+									<br>
+									<!--验证码-->
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 90px;">验证码:</label>
+											<div class="layui-input-inline">
+												<!--输入验证码-->
+												<input type="text" id="ver2" required lay-verify="required|ver2" placeholder="验证码" class="layui-input"
+												 style="width: 200px;height: 40px;">
+											</div>
+											<div style="margin-left: 340px;margin-top:20px;">
+												<i class="layui-icon layui-icon-refresh-3"></i>
+												<a href="#div1">收不到验证码？</a>
+											</div>
+
+										</div>
+										<div class="layui-inline" style="float: right;margin-right: 150px;margin-top: 20px;">
+											<a href="register.html">用户注册</a>
+											<span>|</span>
+											<a href="updateUserPwd.html">修改密码</a>
+											<span>|</span>
+											<a href="findpwd.html">找回密码</a>
+										</div>
+									</div>
+
+
+									<div>
+										<button type="button" class="layui-btn layui-btn-radius" lay-submit="" lay-filter="button2" style="width:30%; margin-left: 150px;margin-top: 20px;">登录</button>
+									</div>
+									<br><br><br>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br><br><br>
+			</div>
+		</div>
+		<script type="text/javascript" src="login.js"></script>
+		<script type="text/javascript" src="../js/footer.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>
