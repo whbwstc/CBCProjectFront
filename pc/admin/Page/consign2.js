@@ -51,6 +51,9 @@ layui.use(['form', 'layedit', 'laydate'], function() {
 					layer.msg(result.msg, {
 						icon: 1,
 						time: 2000
+					},function(){
+						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+						parent.layer.close(index); //再执行关闭  
 					});
 				}
 				sessionStorage.removeItem("store_id");

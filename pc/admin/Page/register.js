@@ -18,71 +18,88 @@ layui.use(['form', 'layer'], function() {
 		//获取手机号码
 		var phone = $("#phone").val();
 		//获取输入的验证码信息
-		var userCode = $("#userCode").val();
+		// var userCode = $("#userCode").val();
+		console.log(phone);
+		
+		sendRequestParam("cbcaccountuser/register", {"accUserName":phone}, function(result) {
+			if (result.code == 0) {
+				layer.confirm(result.msg, {icon: 1, title:'提示'}, function(index){
+				  layer.close(index);
+				  window.location.href = "login.html";
+				});
+			} else {
+				layer.msg(result.msg, {
+					icon: 2,
+					time: 2000
+				},function(){
+					window.location.href = "register.html";
+				});
+			}
+		})
 		//提交后台
-		sendRequest("account.user", {
-				"m": "register",
-				"phone": phone,
-				"userCode": userCode
-			},
-			function(result) {
-				//alert(result.code +"-------"+result.msg);
-				//获取返回值，反馈给用户
+		// sendRequest("account.user", {
+		// 		"m": "register",
+		// 		"phone": phone,
+		// 		"userCode": userCode
+		// 	},
+		// 	function(result) {
+		// 		//alert(result.code +"-------"+result.msg);
+		// 		//获取返回值，反馈给用户
 
-				//window.alert(result.msg);	
-				if (result.code == 0) { //注册失败
-					layer.msg("手机号码有误,注册失败", {
-						icon: 4,
-						time: 3000 //3秒关闭（如果不配置，默认是3秒）
-					});
-				} else if (result.code == -1) {
-					layer.msg("手机号码有误,注册失败", {
-						icon: 4,
-						time: 3000 //3秒关闭（如果不配置，默认是3秒）
-					});
-				} else if (result.code == -3) {
-					layer.msg("该账号已注册,无需再注册", {
-						icon: 4,
-						time: 3000 //3秒关闭（如果不配置，默认是3秒）
-					});
-				} else if (result.code == -4) {
-					layer.msg("验证码有误，请重试", {
-						icon: 4,
-						time: 3000 //3秒关闭（如果不配置，默认是3秒）
-					});
-				} else {
-					//alert(result.msg);
-					//注册成功
-					//示范一个公告层
-					layer.open({
-						type: 1,
-						title: false //不显示标题栏
-							,
-						closeBtn: false,
-						area: '300px;',
-						shade: 0.8,
-						id: 'LAY_layuipro' //设定一个id，防止重复弹出
-							,
-						btn: ['暂不修改', "确定"],
-						btnAlign: 'c',
-						moveType: 1 //拖拽模式，0或者1
-							,
-						content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">注册成功!<br/>温馨提示:您的默认密码为：666666，是否需要修改密码？</div>',
-						success: function(layero) {
-							var btn = layero.find('.layui-layer-btn');
-							//不修改 就跳转到登录
-							btn.find('.layui-layer-btn0').attr({
-								href: 'login.html',
-								target: '_blank'
-							})
-						},
-						btn2: function() {
-							//打开修改密码窗口 并将电话信息作为参数传递过去
-							window.location.href = "updateUserPwd.html?phone=" + phone;
-						}
-					});
-				}
-			})
+		// 		//window.alert(result.msg);	
+		// 		if (result.code == 0) { //注册失败
+		// 			layer.msg("手机号码有误,注册失败", {
+		// 				icon: 4,
+		// 				time: 3000 //3秒关闭（如果不配置，默认是3秒）
+		// 			});
+		// 		} else if (result.code == -1) {
+		// 			layer.msg("手机号码有误,注册失败", {
+		// 				icon: 4,
+		// 				time: 3000 //3秒关闭（如果不配置，默认是3秒）
+		// 			});
+		// 		} else if (result.code == -3) {
+		// 			layer.msg("该账号已注册,无需再注册", {
+		// 				icon: 4,
+		// 				time: 3000 //3秒关闭（如果不配置，默认是3秒）
+		// 			});
+		// 		} else if (result.code == -4) {
+		// 			layer.msg("验证码有误，请重试", {
+		// 				icon: 4,
+		// 				time: 3000 //3秒关闭（如果不配置，默认是3秒）
+		// 			});
+		// 		} else {
+		// 			//alert(result.msg);
+		// 			//注册成功
+		// 			//示范一个公告层
+		// 			layer.open({
+		// 				type: 1,
+		// 				title: false //不显示标题栏
+		// 					,
+		// 				closeBtn: false,
+		// 				area: '300px;',
+		// 				shade: 0.8,
+		// 				id: 'LAY_layuipro' //设定一个id，防止重复弹出
+		// 					,
+		// 				btn: ['暂不修改', "确定"],
+		// 				btnAlign: 'c',
+		// 				moveType: 1 //拖拽模式，0或者1
+		// 					,
+		// 				content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">注册成功!<br/>温馨提示:您的默认密码为：666666，是否需要修改密码？</div>',
+		// 				success: function(layero) {
+		// 					var btn = layero.find('.layui-layer-btn');
+		// 					//不修改 就跳转到登录
+		// 					btn.find('.layui-layer-btn0').attr({
+		// 						href: 'login.html',
+		// 						target: '_blank'
+		// 					})
+		// 				},
+		// 				btn2: function() {
+		// 					//打开修改密码窗口 并将电话信息作为参数传递过去
+		// 					window.location.href = "updateUserPwd.html?phone=" + phone;
+		// 				}
+		// 			});
+		// 		}
+		// 	})
 		//阻止表单提交
 		return false;
 	})

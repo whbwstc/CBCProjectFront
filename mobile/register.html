@@ -30,13 +30,6 @@
 			</div>
 			
 			<div class="weui-cell">
-				<div class="weui-cell__hd"><label class="weui-label">密码</label></div>
-				<div class="weui-cell__bd">
-					<input class="weui-input" id="acc_pwd" type="password" placeholder="输入密码">
-				</div>
-			</div>
-			
-			<div class="weui-cell">
 				<div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
 				<div class="weui-cell__bd">
 					<input class="weui-input" id="acc_code" type="" pattern="[0-9]*" placeholder="请输入验证码">
@@ -71,13 +64,9 @@
 			$("#btnReg").click(function() {
 				//取帐号和密码
 				var acc_name = $("#acc_name").val();
-				//获取验证码
-				var acc_code = $("#acc_code").val();
-				//获取密码框的值
-				var acc_pwd = $("#acc_pwd").val();
+
 				//获取单选框的值
 				var value = $("#weuiAgree").prop("checked");
-				alert(acc_pwd);
 				
 				if (!(/^[0-9]{11}$/.test(acc_name))) {
 					$.alert("手机号不正确！", "存不存提示", function() {
@@ -85,98 +74,82 @@
 					});
 					return;
 				}
-				if(acc_pwd==''){
-					$.alert("密码不能为空!", "存不存提示", function() {
-						$("#acc_pwd").focus();
-					});
-					return;
-				}
-				
-				if (acc_code == '' || acc_code.length != 6) {
-					$.alert("验证码错误", "存不存提示", function() {
-						$("#acc_code").focus();
-					});
-					return;
-				}
+
 				if (!value) {
 					$.alert("最终解释权归我们,不同意无法继续", "警告！");
 					return;
 				}
 				//提交后台 
-				sendRequest("account.user?m=registerMobile", {
-					"phone": acc_name,
-					"userCode": acc_code,
-					"userPwd":acc_pwd
-				}, function(result) {
-					if (result.code == 1) {
-						//注册成功
-						$.alert(result.msg, function() {
-							window.location.href = "login.html";
+				
+				sendRequestParam("cbcaccountuser/register", {"accUserName":acc_name}, function(result) {
+					if (result.code == 0) {
+						$.toast(result.msg, function() {
+							location.href = "login.html";
 						});
-					}else{
-						$.alert(result.msg, "存不存提示", function() {
-							$("#acc_name").focus();
+					} else {
+						$.toast(result.msg, "cancel", function() {
+							window.location.href = "register.html";
 						});
 					}
 				})
 			});
 			
 			//发送验证码按钮事件
-			$("#button").click(function(){
-				//alert(12345);
-				//向后台发送验证码
-				//获取手机号码
-				var phone = $("#acc_name").val();
-				var regex = /^1\d{10}$/;
-				if (phone.length == 0) {
-					$.alert("手机号不能为空", "存不存提示", function() {
-						$("#acc_name").focus();
-					});
-					return;
-				} else if (!regex.exec(phone)) {
-					$.alert("手机号不正确！", "存不存提示", function() {
-						$("#acc_name").focus();
-					});
-					return;
-				} else {
-					//向输入的手机号码发送短信验证码
-					sendRequest("account.user", {
-							"m": "sendMsg",
-							"phone": phone
-						},
-						function(result) {
-							//alert(result.code +"-------"+result.msg);
-							//获取返回值，反馈给用户
-							if (result.code == 1 || result.code == 2) { //发送失败
-								$.alert(result.msg, "警告！");
-							} else {
-								$.alert("发送成功", "存不存提示",settime());
-							}
-						})
-					//阻止表单提交 阻止页面刷新
-					return false;
-				}
-			});
-		});
+		// 	$("#button").click(function(){
+		// 		//alert(12345);
+		// 		//向后台发送验证码
+		// 		//获取手机号码
+		// 		var phone = $("#acc_name").val();
+		// 		var regex = /^1\d{10}$/;
+		// 		if (phone.length == 0) {
+		// 			$.alert("手机号不能为空", "存不存提示", function() {
+		// 				$("#acc_name").focus();
+		// 			});
+		// 			return;
+		// 		} else if (!regex.exec(phone)) {
+		// 			$.alert("手机号不正确！", "存不存提示", function() {
+		// 				$("#acc_name").focus();
+		// 			});
+		// 			return;
+		// 		} else {
+		// 			//向输入的手机号码发送短信验证码
+		// 			sendRequest("account.user", {
+		// 					"m": "sendMsg",
+		// 					"phone": phone
+		// 				},
+		// 				function(result) {
+		// 					//alert(result.code +"-------"+result.msg);
+		// 					//获取返回值，反馈给用户
+		// 					if (result.code == 1 || result.code == 2) { //发送失败
+		// 						$.alert(result.msg, "警告！");
+		// 					} else {
+		// 						$.alert("发送成功", "存不存提示",settime());
+		// 					}
+		// 				})
+		// 			//阻止表单提交 阻止页面刷新
+		// 			return false;
+		// 		}
+		// 	});
+		// });
 		
 		<!--倒计时函数实现-->
-		var countdown = 60;
+		// var countdown = 60;
 
-		function settime() {
-			var obj = document.getElementById('button');
-			if (countdown == 0) {
-				obj.removeAttribute("disabled");
-				obj.value = "获取验证码";
-				countdown = 60;
-				return;
-			} else {
-				obj.setAttribute("disabled", true);
-				obj.value = "重新发送(" + countdown + ")";
-				countdown--;
-			}
-			setTimeout(function() {
-				settime()
-			}, 1000)
-		}
+		// function settime() {
+		// 	var obj = document.getElementById('button');
+		// 	if (countdown == 0) {
+		// 		obj.removeAttribute("disabled");
+		// 		obj.value = "获取验证码";
+		// 		countdown = 60;
+		// 		return;
+		// 	} else {
+		// 		obj.setAttribute("disabled", true);
+		// 		obj.value = "重新发送(" + countdown + ")";
+		// 		countdown--;
+		// 	}
+		// 	setTimeout(function() {
+		// 		settime()
+		// 	}, 1000)
+		// }
 	</script>
 </html>

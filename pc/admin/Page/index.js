@@ -18,9 +18,9 @@
 			if (token == null) { //还未登录
 				layer.msg('您还未登录，请先登录', {
 					icon: 4,
-					time: 2000 //3秒关闭（如果不配置，默认是3秒）
-				}, function() {
-					window.location.href = "login.html";
+					time: 2000//3秒关闭（如果不配置，默认是3秒）
+					},function() {
+						window.location.href = "login.html";
 				});
 			} else { //已经登录
 				//跳转界面
