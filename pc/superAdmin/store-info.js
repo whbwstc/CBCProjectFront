@@ -147,14 +147,14 @@ layui.use(['element', 'table', 'form'], function() {
 							});
 						} else {
 							layer.msg("删除失败！", {
-								icon: 1,
+								icon: 2,
 								time: 2000
 							});
 						}
 					});
 				} else {
 					layer.msg("该寄存点尚在营业！", {
-						icon: 1,
+						icon: 2,
 						time: 2000
 					});
 				}

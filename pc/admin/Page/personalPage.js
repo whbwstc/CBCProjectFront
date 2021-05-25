@@ -189,14 +189,14 @@ layui.use(['element', 'table', 'rate', 'form', 'upload'], function() {
 						});
 					} else {
 						layer.msg("该寄存点暂时未营业！", {
-							icon: 1,
+							icon: 2,
 							time: 2000
 						}, );
 					}
 				});
 			} else {
 				layer.msg("该寄存点背包和行李箱都没有空位了", {
-					icon: 1,
+					icon: 2,
 					time: 4000
 				}, );
 			}

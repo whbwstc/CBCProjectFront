@@ -49,7 +49,7 @@ layui.use(['form', 'layedit', 'laydate'], function() {
    
 				} else {
 					layer.msg(result.msg, {
-						icon: 1,
+						icon: 2,
 						time: 2000
 					},function(){
 						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
